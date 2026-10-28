@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="cosy_primary">#C86D51</color>       <!-- Botón principal y acentos -->
+    <color name="cosy_dark_green">#6A7059</color>    <!-- Tarjeta principal / Verde tierra -->
+    <color name="cosy_bg">#F7F4EE</color>            <!-- Fondo general de la pantalla -->
+    <color name="cosy_card_bg">#E2D6C5</color>       <!-- Fondo de tarjetas secundarias / Logo -->
+    <color name="cosy_text_dark">#3E2F28</color>     <!-- Textos principales oscuros -->
+    <color name="cosy_text_muted">#8A7A70</color>    <!-- Textos secundarios o subtítulos -->
+</resources>
