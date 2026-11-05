@@ -10,7 +10,6 @@
     android:paddingTop="35dp"
     android:paddingBottom="12dp">
 
-
     <ImageView
         android:id="@+id/viewLogo"
         android:layout_width="120dp"
@@ -74,7 +73,6 @@
                 android:textStyle="bold" />
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTransform"
@@ -288,7 +286,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnExplore"
