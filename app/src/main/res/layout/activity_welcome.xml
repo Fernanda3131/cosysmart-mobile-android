@@ -7,14 +7,14 @@
     android:background="@color/cosy_bg"
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
-    android:paddingTop="85dp"
+    android:paddingTop="35dp"
     android:paddingBottom="12dp">
 
-    <!-- LOGO -->
+
     <ImageView
         android:id="@+id/viewLogo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="14dp"
         android:src="@drawable/logo_clean"
         android:scaleType="centerInside"
@@ -36,7 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- TARJETA PRINCIPAL CON LA FOTO DEL SOFÁ -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardGreen"
         android:layout_width="0dp"
@@ -53,20 +52,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- IMAGEN REAL DEL SOFÁ (Cambia 'sofa_welcome' por el nombre de tu foto en drawable) -->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/welcome_banner" />
 
-            <!-- CAPA OSCURA SUAVE PARA QUE EL TEXTO SE LEA BIEN -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#33000000" />
 
-            <!-- TEXTO INFERIOR DE LA TARJETA -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +75,7 @@
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- TARJETA "TRANSFORMA TU HOGAR" -->
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTransform"
         android:layout_width="0dp"
@@ -97,46 +93,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:gravity="center_vertical">
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:gravity="center">
 
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:scaleType="centerInside" />
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="14dp">
+                android:text="Transforma tu hogar"
+                android:textColor="@color/cosy_text_dark"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAlignment="center" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Transforma tu hogar"
-                    android:textColor="@color/cosy_text_dark"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="CosySmart conecta tus necesidades de espacio con muebles multifuncionales y versátiles."
-                    android:textColor="@color/cosy_text_muted"
-                    android:textSize="10sp" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="CosySmart conecta tus necesidades de espacio con muebles multifuncionales y versátiles."
+                android:textColor="@color/cosy_text_muted"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:textAlignment="center" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- CONTAINER DE CARDS DE BENEFICIOS -->
     <LinearLayout
         android:id="@+id/containerBenefits"
         android:layout_width="0dp"
@@ -156,11 +142,45 @@
             app:cardBackgroundColor="@color/white"
             app:strokeColor="@color/cosy_card_bg"
             app:strokeWidth="1dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="10dp" android:paddingBottom="10dp" android:gravity="center_vertical">
-                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@color/cosy_bg"/>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Muebles Multifuncionales" android:textColor="@color/cosy_text_dark" android:textSize="12sp" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Catálogo curado para optimizar departamentos y espacios reducidos." android:textColor="@color/cosy_text_muted" android:textSize="10sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/homeicon"
+                    app:tint="@color/cosy_dark_green"
+                    android:scaleType="centerInside" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Muebles Multifuncionales"
+                        android:textColor="@color/cosy_text_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Catálogo curado para optimizar departamentos y espacios reducidos."
+                        android:textColor="@color/cosy_text_muted"
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -174,11 +194,45 @@
             app:cardBackgroundColor="@color/white"
             app:strokeColor="@color/cosy_card_bg"
             app:strokeWidth="1dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="10dp" android:paddingBottom="10dp" android:gravity="center_vertical">
-                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@color/cosy_bg"/>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bienestar y Estilo" android:textColor="@color/cosy_text_dark" android:textSize="12sp" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Piezas ergonómicas con estética cálida, moderna y duradera." android:textColor="@color/cosy_text_muted" android:textSize="10sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/staricon"
+                    app:tint="@color/cosy_dark_green"
+                    android:scaleType="centerInside" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bienestar y Estilo"
+                        android:textColor="@color/cosy_text_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Piezas ergonómicas con estética cálida, moderna y duradera."
+                        android:textColor="@color/cosy_text_muted"
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -191,17 +245,51 @@
             app:cardBackgroundColor="@color/white"
             app:strokeColor="@color/cosy_card_bg"
             app:strokeWidth="1dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="10dp" android:paddingBottom="10dp" android:gravity="center_vertical">
-                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@color/cosy_bg"/>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Compra Directa y Segura" android:textColor="@color/cosy_text_dark" android:textSize="12sp" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Conecta con fabricantes verificados y sigue tus entregas en tiempo real." android:textColor="@color/cosy_text_muted" android:textSize="10sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/caricon"
+                    app:tint="@color/cosy_dark_green"
+                    android:scaleType="centerInside" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Compra Directa y Segura"
+                        android:textColor="@color/cosy_text_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Conecta con fabricantes verificados y sigue tus entregas en tiempo real."
+                        android:textColor="@color/cosy_text_muted"
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
-    <!-- BOTONES INFERIORES -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnExplore"
         style="@style/Widget.CosySmart.Button.Primary"
@@ -214,7 +302,6 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
-        android:id="@+id/layoutBottomButtons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
