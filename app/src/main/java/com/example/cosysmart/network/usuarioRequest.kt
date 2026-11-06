@@ -14,3 +14,23 @@ data class UsuarioResponse(
     val Correo: String,
     val Mensaje: String?
 )
+data class LoginRequest(
+    val Correo: String,
+    val Contrasena: String
+)
+
+data class LoginResponse(
+    val mensaje: String,
+    val access_token: String,
+    val token_type: String,
+    val usuario: UsuarioLoginRespuesta
+)
+
+data class UsuarioLoginRespuesta(
+    val IdUsuario: Int,
+    val Nombres: String,
+    val Apellidos: String,
+    val Correo: String,
+    val FotoPerfil: String?,
+    val Estado: String
+)

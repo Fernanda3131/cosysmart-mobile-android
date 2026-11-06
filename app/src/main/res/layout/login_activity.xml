@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFBF7"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="CosySmart"
+            android:textColor="#3D3028"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/cardBanner"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/salalogin"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CosySmart.ArchedBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppTitle" />
+
+        <TextView
+            android:id="@+id/tvWelcomeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Bienvenido de nuevo"
+            android:textColor="#3D3028"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardBanner" />
+
+        <TextView
+            android:id="@+id/tvWelcomeSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Tu espacio de armonía te espera."
+            android:textColor="#7A6D63"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle" />
+
+        <TextView
+            android:id="@+id/lblCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Correo electrónico"
+            android:textColor="#5C4D44"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeSubtitle" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLoginCorreo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="#A68A78"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="#5C4D44"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblCorreo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLoginCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="tu@correo.com"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColor="#000000"
+                android:textColorHint="#7A6D63"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/lblContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Contraseña"
+            android:textColor="#5C4D44"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilLoginCorreo" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLoginContrasena"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="#A68A78"
+            app:endIconMode="password_toggle"
+            app:endIconTint="#5C4D44"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="#5C4D44"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblContrasena">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLoginContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingresa tu contraseña"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="#000000"
+                android:textColorHint="#7A6D63"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#C86D51"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilLoginContrasena" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLoginSubmit"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:text="Ingresar"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:backgroundTint="#C86D51"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
+
+
+        <LinearLayout
+            android:id="@+id/layoutDivider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLoginSubmit">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#A68A78" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:text="o continúa con"
+                android:textColor="#7A6D63"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#A68A78" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoogleLogin"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:text="Continuar con Google"
+            android:textAllCaps="false"
+            android:textColor="#3D3028"
+            android:textSize="14sp"
+            app:cornerRadius="12dp"
+            app:strokeColor="#A68A78"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="textStart"
+            app:iconTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDivider" />
+
+        <LinearLayout
+            android:id="@+id/layoutRegisterFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnGoogleLogin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Aún no tienes cuenta? "
+                android:textColor="#7A6D63"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvGoToRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crear una cuenta"
+                android:textColor="#C86D51"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRegisterFooter">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Al ingresar, verás las opciones habilitadas para tu cuenta."
+                android:textColor="#8C7C70"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -14,8 +14,6 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CosySmart">
-
-        <!-- MainActivity configurada como inicio con el Splash nativo -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -26,11 +24,16 @@
             </intent-filter>
         </activity>
 
-        <!-- Pantalla de Registro -->
         <activity
             android:name=".register.RegisterActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".register.SecurityPoliciesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
 
     </application>
 

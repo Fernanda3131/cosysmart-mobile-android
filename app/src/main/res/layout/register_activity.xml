@@ -212,7 +212,7 @@
             android:textColor="#8C7C70"
             android:layout_marginBottom="16dp"/>
 
-        <!-- ¿Cómo quieres unirte? (Usa rgTipoUsuario y el drawable radio_card_bg) -->
+        <!-- ¿Cómo quieres unirte? -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -297,7 +297,7 @@
             app:cornerRadius="12dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Iniciar sesión -->
+        <!-- Iniciar sesión (ID actualizado a tvGoToLogin) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -313,7 +313,7 @@
                 android:textColor="#7A6D63"/>
 
             <TextView
-                android:id="@+id/tvIniciarSesion"
+                android:id="@+id/tvGoToLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Iniciar sesión"

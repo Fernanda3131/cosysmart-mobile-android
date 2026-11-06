@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFBF7"
+    android:fillViewport="true"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#EAE3DC"
+                app:strokeWidth="1dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#3D3028"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Marco Legal CosySmart"
+                android:textColor="#3D3028"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="serif" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Políticas y Términos"
+            android:textColor="#3D3028"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="14dp"
+            android:text="Aceptación obligatoria para operar en la plataforma"
+            android:textColor="#7A6D63"
+            android:textSize="11sp"
+            android:fontFamily="serif" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#EAE3DC"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha de vigencia: Octubre 2026"
+                        android:textColor="#7A6D63"
+                        android:textSize="10sp"
+                        android:fontFamily="serif" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Marco Normativo Colombia (Ley 1581 / 1480)"
+                        android:textColor="#3D3028"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#F6EAE1"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="Versión v2.4"
+                        android:textColor="#C86D51"
+                        android:textSize="9sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#EAE3DC"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Términos y Condiciones de Uso"
+                    android:textColor="#3D3028"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="CosySmart actúa como un marketplace intermediario para la exhibición y comercialización de mobiliario multifuncional. Los usuarios compradores y vendedores aceptan actuar bajo los principios de buena fe, veracidad en las publicaciones y cumplimiento de los tiempos de entrega acordados en el territorio colombiano."
+                    android:textColor="#7A6D63"
+                    android:textSize="11sp"
+                    android:fontFamily="serif" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#EAE3DC"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2. Política de Privacidad y Habeas Data (Ley 1581)"
+                    android:textColor="#3D3028"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="De conformidad con la Ley 1581 de 2012 y el Decreto 1377 de 2013, autorizas a CosySmart para la recolección, almacenamiento y uso de tus datos personales con fines de gestión de cuenta, procesamiento de pedidos y notificaciones de envío. Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos escribiendo a nuestro soporte."
+                    android:textColor="#7A6D63"
+                    android:textSize="11sp"
+                    android:fontFamily="serif" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#EAE3DC"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3. Derecho de Retracto y Garantías (Estatuto del Consumidor)"
+                    android:textColor="#3D3028"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Conforme al artículo 47 de la Ley 1480 de 2011 (Estatuto del Consumidor), el comprador podrá ejercer el derecho de retracto dentro de los 5 (cinco) días hábiles siguientes a la entrega del producto. Los muebles deben encontrarse en las mismas condiciones en que fueron recibidos, sin alteraciones ni armados forzosos."
+                    android:textColor="#7A6D63"
+                    android:textSize="11sp"
+                    android:fontFamily="serif" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAcceptPolicies"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:text="Entendido y Volver"
+            android:textSize="15sp"
+            app:backgroundTint="#C86D51"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+</ScrollView>

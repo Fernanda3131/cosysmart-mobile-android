@@ -6,11 +6,11 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.cosysmart.login.LoginActivity // <--- 1. Importamos LoginActivity
 import com.example.cosysmart.register.RegisterActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        // 1. Activa el Splash Screen nativo con el logo antes de inflar la vista
         val splashScreen = installSplashScreen()
 
         super.onCreate(savedInstanceState)
@@ -23,11 +23,10 @@ class MainActivity : ComponentActivity() {
         btnExplore?.setOnClickListener {
             Toast.makeText(this, "¡Bienvenido a explorar CosySmart!", Toast.LENGTH_SHORT).show()
         }
-
         btnLogin?.setOnClickListener {
-            Toast.makeText(this, "Ir a Iniciar Sesión", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
-
         btnRegister?.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
