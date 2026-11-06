@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
+
         <TextView
             android:id="@+id/tvAppTitle"
             android:layout_width="wrap_content"
@@ -112,7 +113,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilLoginCorreo" />
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilLoginContrasena"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -145,7 +145,6 @@
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
@@ -157,7 +156,6 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilLoginContrasena" />
-
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLoginSubmit"
@@ -173,7 +171,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
-
 
         <LinearLayout
             android:id="@+id/layoutDivider"
@@ -255,25 +252,38 @@
                 android:focusable="true"/>
         </LinearLayout>
 
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBiometricLogin"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:text="Ingresar con Huella / Biometría"
+            android:textAllCaps="false"
+            android:textColor="#3D3028"
+            android:textSize="14sp"
+            app:cornerRadius="12dp"
+            app:strokeColor="#A68A78"
+            app:icon="@android:drawable/ic_menu_myplaces"
+            app:iconTint="#C86D51"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRegisterFooter" />
+
+        <TextView
+            android:id="@+id/tvFooterInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:text="Al ingresar, verás las opciones habilitadas para tu cuenta."
+            android:textColor="#8C7C70"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutRegisterFooter">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Al ingresar, verás las opciones habilitadas para tu cuenta."
-                android:textColor="#8C7C70"
-                android:textSize="11sp" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/btnBiometricLogin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

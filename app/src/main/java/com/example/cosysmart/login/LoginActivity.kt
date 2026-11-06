@@ -6,6 +6,9 @@ import android.util.Patterns
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import com.example.cosysmart.R
 import com.example.cosysmart.network.LoginRequest
 import com.example.cosysmart.network.LoginResponse
@@ -26,8 +29,10 @@ class LoginActivity : AppCompatActivity() {
         val etCorreo = findViewById<TextInputEditText>(R.id.etLoginCorreo)
         val etContrasena = findViewById<TextInputEditText>(R.id.etLoginContrasena)
         val btnLoginSubmit = findViewById<MaterialButton>(R.id.btnLoginSubmit)
+        val btnBiometricLogin = findViewById<MaterialButton>(R.id.btnBiometricLogin)
         val tvGoToRegister = findViewById<TextView>(R.id.tvGoToRegister)
         val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
+
         tvGoToRegister?.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -35,6 +40,10 @@ class LoginActivity : AppCompatActivity() {
 
         tvForgotPassword?.setOnClickListener {
             Toast.makeText(this, "Función de recuperación de contraseña en proceso", Toast.LENGTH_SHORT).show()
+        }
+
+        btnBiometricLogin?.setOnClickListener {
+            biometricAuthentication()
         }
 
         btnLoginSubmit.setOnClickListener {
@@ -59,9 +68,7 @@ class LoginActivity : AppCompatActivity() {
             RetrofitClient.instance.loginUsuario(loginRequest).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body() != null) {
-                        val loginData = response.body()!!
                         Toast.makeText(this@LoginActivity, "¡Bienvenido a CosySmart!", Toast.LENGTH_LONG).show()
-
                         finish()
                     } else {
                         when (response.code()) {
@@ -77,5 +84,50 @@ class LoginActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    private fun biometricAuthentication() {
+        val biometricManager = BiometricManager.from(this)
+        when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
+            BiometricManager.BIOMETRIC_SUCCESS -> {
+                launchBiometricPrompt()
+            }
+            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
+                Toast.makeText(this, "Este dispositivo no cuenta con sensor biométrico", Toast.LENGTH_SHORT).show()
+            }
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+                Toast.makeText(this, "No hay huellas configuradas en el dispositivo", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun launchBiometricPrompt() {
+        val executor = ContextCompat.getMainExecutor(this)
+        val biometricPrompt = BiometricPrompt(this, executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    Toast.makeText(applicationContext, "Error: $errString", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    Toast.makeText(applicationContext, "¡Autenticación biométrica exitosa!", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                    Toast.makeText(applicationContext, "Huella no reconocida", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        val promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Acceso Biométrico CosySmart")
+            .setSubtitle("Usa tu huella digital para iniciar sesión")
+            .setNegativeButtonText("Cancelar")
+            .build()
+
+        biometricPrompt.authenticate(promptInfo)
     }
 }
