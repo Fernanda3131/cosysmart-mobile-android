@@ -10,6 +10,8 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.example.cosysmart.R
+import com.example.cosysmart.admin.ActivityHomeAdmin
+import com.example.cosysmart.home.ActivityHome
 import com.example.cosysmart.network.LoginRequest
 import com.example.cosysmart.network.LoginResponse
 import com.example.cosysmart.network.RetrofitClient
@@ -32,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         val btnBiometricLogin = findViewById<MaterialButton>(R.id.btnBiometricLogin)
         val tvGoToRegister = findViewById<TextView>(R.id.tvGoToRegister)
         val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
+        val tvOlvidasteContrasena = findViewById<TextView>(R.id.tvOlvidasteContrasena) // Por si mantienes el del footer
 
         tvGoToRegister?.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -39,7 +42,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
         tvForgotPassword?.setOnClickListener {
-            Toast.makeText(this, "Función de recuperación de contraseña en proceso", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ActivityForgotPassword::class.java)
+            startActivity(intent)
+        }
+        tvOlvidasteContrasena?.setOnClickListener {
+            val intent = Intent(this, ActivityForgotPassword::class.java)
+            startActivity(intent)
         }
 
         btnBiometricLogin?.setOnClickListener {
@@ -68,7 +76,22 @@ class LoginActivity : AppCompatActivity() {
             RetrofitClient.instance.loginUsuario(loginRequest).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body() != null) {
-                        Toast.makeText(this@LoginActivity, "¡Bienvenido a CosySmart!", Toast.LENGTH_LONG).show()
+                        val loginResponse = response.body()!!
+                        val rolUsuario = loginResponse.usuario.Rol.lowercase()
+                        val nombreUsuario = loginResponse.usuario.Nombres
+
+                        Toast.makeText(this@LoginActivity, "¡Bienvenido a CosySmart, $nombreUsuario!", Toast.LENGTH_SHORT).show()
+                        val intent = if (rolUsuario == "admin" || rolUsuario == "administrador") {
+                            Intent(this@LoginActivity, ActivityHomeAdmin::class.java).apply {
+                                putExtra("USER_NAME", nombreUsuario)
+                            }
+                        } else {
+                            Intent(this@LoginActivity, ActivityHome::class.java).apply {
+                                putExtra("USER_NAME", nombreUsuario)
+                            }
+                        }
+
+                        startActivity(intent)
                         finish()
                     } else {
                         when (response.code()) {
@@ -113,6 +136,8 @@ class LoginActivity : AppCompatActivity() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
                     Toast.makeText(applicationContext, "¡Autenticación biométrica exitosa!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@LoginActivity, ActivityHome::class.java)
+                    startActivity(intent)
                     finish()
                 }
 

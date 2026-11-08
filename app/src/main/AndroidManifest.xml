@@ -35,6 +35,11 @@
             android:name=".login.LoginActivity"
             android:exported="false" />
 
+        <activity android:name=".admin.ActivityHomeAdmin" />
+        <activity android:name=".home.ActivityHome" />
+        <activity android:name=".admin.users.ActivityAdminUsers"/>
+        <activity android:name=".login.ActivityForgotPassword"/>
+
     </application>
 
 </manifest>

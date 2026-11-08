@@ -8,12 +8,14 @@ data class UsuarioRequest(
     val Contrasena: String,
     val FotoPerfil: String?
 )
+
 data class UsuarioResponse(
     val IdUsuario: Int?,
     val Nombres: String,
     val Correo: String,
     val Mensaje: String?
 )
+
 data class LoginRequest(
     val Correo: String,
     val Contrasena: String
@@ -23,7 +25,8 @@ data class LoginResponse(
     val mensaje: String,
     val access_token: String,
     val token_type: String,
-    val usuario: UsuarioLoginRespuesta
+    val usuario: UsuarioLoginRespuesta,
+    val rol: String?
 )
 
 data class UsuarioLoginRespuesta(
@@ -32,5 +35,13 @@ data class UsuarioLoginRespuesta(
     val Apellidos: String,
     val Correo: String,
     val FotoPerfil: String?,
-    val Estado: String
+    val Estado: String,
+    val Rol: String
+)
+
+data class UsuarioItem(
+    val nombre: String,
+    val correo: String,
+    val rol: String,
+    val estado: String
 )
