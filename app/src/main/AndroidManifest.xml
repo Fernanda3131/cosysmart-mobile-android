@@ -39,6 +39,11 @@
         <activity android:name=".home.ActivityHome" />
         <activity android:name=".admin.users.ActivityAdminUsers"/>
         <activity android:name=".login.ActivityForgotPassword"/>
+        <activity
+            android:name=".admin.AdminFinanceActivity"
+            android:exported="false" />
+        <activity android:name=".admin.products.AdminCatalogActivity"
+            android:exported="false"/>
 
     </application>
 

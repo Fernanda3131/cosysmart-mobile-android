@@ -4,10 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import com.example.cosysmart.R
 import com.example.cosysmart.admin.ActivityHomeAdmin
+import com.example.cosysmart.admin.products.AdminCatalogActivity // <--- Importamos nuestra nueva actividad de catálogo
+import com.example.cosysmart.admin.AdminFinanceActivity
 import com.example.cosysmart.admin.users.ActivityAdminUsers
-// Importa también las Activities de catálogo y ajustes cuando las tengas creadas:
-// import com.example.cosysmart.admin.products.ActivityAdminProducts
-// import com.example.cosysmart.admin.settings.ActivityAdminSettings
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 object BottomNavigationHelper {
@@ -38,9 +37,19 @@ object BottomNavigationHelper {
                     true
                 }
                 R.id.nav_catalogo -> {
+                    val intent = Intent(activity, AdminCatalogActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    }
+                    activity.startActivity(intent)
+                    activity.finish()
                     true
                 }
                 R.id.nav_finanzas -> {
+                    val intent = Intent(activity, AdminFinanceActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    }
+                    activity.startActivity(intent)
+                    activity.finish()
                     true
                 }
                 else -> false
