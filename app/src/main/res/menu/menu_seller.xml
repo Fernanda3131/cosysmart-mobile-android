@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_seller_panel"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Panel" />
+
+    <item
+        android:id="@+id/nav_seller_productos"
+        android:icon="@drawable/ic_menu_box_background"
+        android:title="Productos" />
+
+    <item
+        android:id="@+id/nav_seller_pedidos"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Pedidos" />
+
+    <item
+        android:id="@+id/nav_seller_perfil"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="Perfil" />
+</menu>

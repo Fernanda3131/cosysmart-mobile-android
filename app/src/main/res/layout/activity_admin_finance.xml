@@ -1,285 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDFBF7"
-    android:fillViewport="true">
+    android:background="#FDFBF7">
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:menu="@menu/menu_admin"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:elevation="8dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <ImageButton
-                android:id="@+id/btnBackFinanzas"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_search_input"
-                android:src="@android:drawable/ic_menu_revert"
-                app:tint="#3D3028" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Balance Financiero"
-                android:textColor="#3D3028"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reportes Financieros"
-            android:textColor="#3D3028"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="16dp"
-            android:text="Consolidado de ventas, comisiones, pagos y métricas globales"
-            android:textColor="#7A6D63"
-            android:textSize="12sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="20dp">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="Exportar a Excel"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                app:backgroundTint="#C86D51"
-                app:cornerRadius="12dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:text="Exportar a PDF"
-                android:textAllCaps="false"
-                android:textColor="#3D3028"
-                android:textSize="13sp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                app:strokeColor="#A68A78"
-                app:cornerRadius="12dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="12dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="6dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="INGRESOS TOTALES" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$48.250.000" android:textSize="16sp" android:textColor="#C86D51" android:textStyle="bold" android:layout_marginTop="4dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Plataforma (Bruta)" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMISIONES COSZYSMART" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$7.237.500" android:textSize="16sp" android:textColor="#3D3028" android:textStyle="bold" android:layout_marginTop="4dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15% Promedio Neto" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="20dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="6dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PAGOS RECIBIDOS" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$43.100.000" android:textSize="16sp" android:textColor="#3D3028" android:textStyle="bold" android:layout_marginTop="4dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="98.2% Procesado" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PENDIENTES / REEMBOLSOS" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$1.850.000" android:textSize="16sp" android:textColor="#C86D51" android:textStyle="bold" android:layout_marginTop="4dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Saldos en Reembolsos" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="16dp">
+
+                <ImageButton
+                    android:id="@+id/btnBackFinance"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_search_input"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="#3D3028"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Comportamiento de Ventas e Ingresos"
+                    android:layout_centerInParent="true"
+                    android:text="Balance Financiero"
                     android:textColor="#3D3028"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/barChartFinanzas"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reportes Financieros"
+                android:textColor="#3D3028"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="16dp"
+                android:text="Visión global de ingresos, comisiones y flujos"
+                android:textColor="#7A6D63"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="Exportar a Excel"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#C86D51"
+                    app:cornerRadius="8dp"
+                    android:insetTop="0dp" android:insetBottom="0dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="Exportar a PDF"
+                    android:textSize="11sp"
+                    android:textColor="#3D3028"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:strokeColor="#A68A78"
+                    app:cornerRadius="8dp"
+                    android:insetTop="0dp" android:insetBottom="0dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="INGRESOS TOTALES" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$68.4M COP" android:textSize="18sp" android:textColor="#C86D51" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+14.2% vs mes ant." android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMISIONES COSYSMART" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$3.217.500" android:textSize="18sp" android:textColor="#3D3028" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.7% Promedio red" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PAGOS A VENDEDORES" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$51.104.000" android:textSize="18sp" android:textColor="#3D3028" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="74.7% Del volumen" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DESCUENTOS Y PROMOCIONES" android:textSize="10sp" android:textColor="#7A6D63" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$1.850.000" android:textSize="18sp" android:textColor="#C86D51" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aplicados en compras" android:textSize="10sp" android:textColor="#A68A78" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Comisiones por Vendedor"
+                android:textColor="#3D3028"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp">
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="220dp" />
+                    android:layout_height="wrap_content"
+                    android:padding="14dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Andrés Guzmán" android:textSize="14sp" android:textColor="#3D3028" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vendedor · Muebles Multifuncionales" android:textSize="11sp" android:textColor="#7A6D63" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="$2.427.300"
+                        android:textColor="#C86D51"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="10dp"
-            android:text="Comisiones por Vendedor"
-            android:textColor="#3D3028"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="1dp">
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="14dp"
-                android:gravity="center_vertical">
-                <LinearLayout
-                    android:layout_width="0dp"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Andrés Guzmán" android:textSize="14sp" android:textColor="#3D3028" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15 ventas · Muebles Multifuncionales" android:textSize="11sp" android:textColor="#7A6D63" android:layout_marginTop="2dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="end">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$2.427.300" android:textSize="14sp" android:textColor="#C86D51" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Comisión 15%" android:textSize="10sp" android:textColor="#A68A78"/>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:padding="14dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Luminarias Serena Ltda." android:textSize="14sp" android:textColor="#3D3028" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vendedor · Iluminación Ambiental" android:textSize="11sp" android:textColor="#7A6D63" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="$1.300.500"
+                        android:textColor="#C86D51"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="1dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="14dp"
-                android:gravity="center_vertical">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Luminarias Serena Ltda." android:textSize="14sp" android:textColor="#3D3028" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8 ventas · Iluminación Hogar" android:textSize="11sp" android:textColor="#7A6D63" android:layout_marginTop="2dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="end">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$1.360.800" android:textSize="14sp" android:textColor="#C86D51" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Comisión 15%" android:textSize="10sp" android:textColor="#A68A78"/>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
-</ScrollView>
+</RelativeLayout>

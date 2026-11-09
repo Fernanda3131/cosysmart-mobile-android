@@ -4,9 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import com.example.cosysmart.R
 import com.example.cosysmart.admin.ActivityHomeAdmin
-import com.example.cosysmart.admin.products.AdminCatalogActivity // <--- Importamos nuestra nueva actividad de catálogo
 import com.example.cosysmart.admin.AdminFinanceActivity
+import com.example.cosysmart.admin.products.AdminCatalogActivity
 import com.example.cosysmart.admin.users.ActivityAdminUsers
+import com.example.cosysmart.home.ActivityHome
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 object BottomNavigationHelper {
@@ -50,6 +51,73 @@ object BottomNavigationHelper {
                     }
                     activity.startActivity(intent)
                     activity.finish()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    fun setupBuyerNav(activity: Activity, bottomNavigationView: BottomNavigationView, currentItemId: Int) {
+        bottomNavigationView.menu.clear()
+        bottomNavigationView.inflateMenu(R.menu.menu_buyer)
+        bottomNavigationView.selectedItemId = currentItemId
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            if (item.itemId == currentItemId) {
+                return@setOnItemSelectedListener true
+            }
+
+            when (item.itemId) {
+                R.id.nav_buyer_inicio -> {
+                    val intent = Intent(activity, ActivityHome::class.java).apply {
+                        putExtra("USER_ROLE", "buyer")
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    }
+                    activity.startActivity(intent)
+                    activity.finish()
+                    true
+                }
+                R.id.nav_buyer_catalogo -> {
+                    true
+                }
+                R.id.nav_buyer_favoritos -> {
+                    true
+                }
+                R.id.nav_buyer_perfil -> {
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    fun setupSellerNav(activity: Activity, bottomNavigationView: BottomNavigationView, currentItemId: Int) {
+        bottomNavigationView.menu.clear()
+        bottomNavigationView.inflateMenu(R.menu.menu_seller)
+        bottomNavigationView.selectedItemId = currentItemId
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            if (item.itemId == currentItemId) {
+                return@setOnItemSelectedListener true
+            }
+
+            when (item.itemId) {
+                R.id.nav_seller_panel -> {
+                    val intent = Intent(activity, ActivityHome::class.java).apply {
+                        putExtra("USER_ROLE", "seller")
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    }
+                    activity.startActivity(intent)
+                    activity.finish()
+                    true
+                }
+                R.id.nav_seller_productos -> {
+                    true
+                }
+                R.id.nav_seller_pedidos -> {
+                    true
+                }
+                R.id.nav_seller_perfil -> {
                     true
                 }
                 else -> false
