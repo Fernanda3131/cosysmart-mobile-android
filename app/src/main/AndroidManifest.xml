@@ -44,7 +44,10 @@
             android:exported="false" />
         <activity android:name=".admin.products.AdminCatalogActivity"
             android:exported="false"/>
-
+        <activity android:name=".seller.management.ActivitySellerOrders"/>
+        <activity android:name=".seller.management.ActivitySellerProducts"/>
+        <activity android:name=".seller.management.ActivitySellerSales"/>
+        <activity android:name=".seller.profile.ActivitySellerProfile"/>
     </application>
 
 </manifest>

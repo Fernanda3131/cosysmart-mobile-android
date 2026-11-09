@@ -8,6 +8,9 @@ import com.example.cosysmart.admin.AdminFinanceActivity
 import com.example.cosysmart.admin.products.AdminCatalogActivity
 import com.example.cosysmart.admin.users.ActivityAdminUsers
 import com.example.cosysmart.home.ActivityHome
+import com.example.cosysmart.seller.management.ActivitySellerOrders
+import com.example.cosysmart.seller.management.ActivitySellerProducts
+import com.example.cosysmart.seller.profile.ActivitySellerProfile
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 object BottomNavigationHelper {
@@ -91,6 +94,7 @@ object BottomNavigationHelper {
             }
         }
     }
+
     fun setupSellerNav(activity: Activity, bottomNavigationView: BottomNavigationView, currentItemId: Int) {
         bottomNavigationView.menu.clear()
         bottomNavigationView.inflateMenu(R.menu.menu_seller)
@@ -112,12 +116,33 @@ object BottomNavigationHelper {
                     true
                 }
                 R.id.nav_seller_productos -> {
+                    if (activity !is ActivitySellerProducts) {
+                        val intent = Intent(activity, ActivitySellerProducts::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        }
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
                     true
                 }
                 R.id.nav_seller_pedidos -> {
+                    if (activity !is ActivitySellerOrders) {
+                        val intent = Intent(activity, ActivitySellerOrders::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        }
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
                     true
                 }
                 R.id.nav_seller_perfil -> {
+                    if (activity !is ActivitySellerProfile) {
+                        val intent = Intent(activity, ActivitySellerProfile::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        }
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
                     true
                 }
                 else -> false
