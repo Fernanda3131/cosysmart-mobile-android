@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFBF7">
+
+    <RelativeLayout
+        android:id="@+id/layoutHeaderTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="#C05C38"
+                android:padding="6dp"
+                android:src="@android:drawable/ic_menu_compass"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="CosySmart"
+                android:textColor="#2C221E"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationViewBuyer"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeaderTop">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgAvatarBuyer"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="#EFECE6"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/imgAvatarBuyer"
+                        android:layout_toStartOf="@id/btnEditProfile"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="María Fernanda León"
+                            android:textColor="#2C221E"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="maria.leon@email.com"
+                            android:textColor="#7A6F68"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="#F8EFEB"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="6dp"
+                        android:text="Editar datos"
+                        android:textColor="#C05C38"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Mi cuenta"
+                android:textColor="#2C221E"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/btnSavedAddresses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_mapmode" app:tint="#C05C38"/>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:text="Direcciones guardadas" android:textStyle="bold" android:textSize="13sp" android:textColor="#2C221E" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                            <TextView android:text="Cra. 45 # 100-20, Bogotá D.C." android:textSize="11sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <TextView android:text="›" android:textSize="20sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0EAE1" android:layout_marginStart="50dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnOrderHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#C05C38"/>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:text="Historial de pedidos" android:textStyle="bold" android:textSize="13sp" android:textColor="#2C221E" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                            <TextView android:text="#CS-84920 · En camino" android:textSize="11sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <TextView android:text="›" android:textSize="20sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0EAE1" android:layout_marginStart="50dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnFavoriteProducts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_my_calendar" app:tint="#C05C38"/>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:text="Productos favoritos" android:textStyle="bold" android:textSize="13sp" android:textColor="#2C221E" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                            <TextView android:text="4 artículos guardados" android:textSize="11sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <TextView android:text="›" android:textSize="20sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Preferencias de decoración"
+                android:textColor="#2C221E"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estilos favoritos:"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Minimalista" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Nórdico" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:background="#F2ECE4" android:textColor="#4A3F38" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Industrial" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Natural" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="Ambientes de interés:"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Sala" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:background="#F2ECE4" android:textColor="#4A3F38" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Dormitorio" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Espacios pequeños" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Cerrar sesión"
+                android:textAllCaps="false"
+                android:textColor="#C05C38"
+                android:textSize="14sp"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="10dp"
+                app:strokeColor="#E0D7CE"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewBuyer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_buyer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

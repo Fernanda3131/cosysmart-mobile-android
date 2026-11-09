@@ -11,12 +11,12 @@
         android:title="Catálogo" />
 
     <item
-        android:id="@+id/nav_buyer_favoritos"
-        android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="Favoritos" />
+        android:id="@+id/nav_buyer_carrito"
+        android:icon="@drawable/ic_shopping"
+        android:title="Carrito" />
 
     <item
         android:id="@+id/nav_buyer_perfil"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@drawable/ic_profile"
         android:title="Perfil" />
 </menu>

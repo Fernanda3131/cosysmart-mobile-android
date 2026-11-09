@@ -48,6 +48,11 @@
         <activity android:name=".seller.management.ActivitySellerProducts"/>
         <activity android:name=".seller.management.ActivitySellerSales"/>
         <activity android:name=".seller.profile.ActivitySellerProfile"/>
+        <activity android:name=".buyer.ActivityCart"/>
+        <activity android:name=".buyer.ActivityCatalog"/>
+        <activity android:name=".buyer.ActivityBuyerProfile"/>
+        <activity android:name=".payments.ActivityCheckout"/>
+        <activity android:name=".payments.ActivityPaymentConfirmation"/>
     </application>
 
 </manifest>

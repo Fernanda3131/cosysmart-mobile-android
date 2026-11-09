@@ -7,6 +7,9 @@ import com.example.cosysmart.admin.ActivityHomeAdmin
 import com.example.cosysmart.admin.AdminFinanceActivity
 import com.example.cosysmart.admin.products.AdminCatalogActivity
 import com.example.cosysmart.admin.users.ActivityAdminUsers
+import com.example.cosysmart.buyer.ActivityBuyerProfile
+import com.example.cosysmart.buyer.ActivityCart
+import com.example.cosysmart.buyer.ActivityCatalog
 import com.example.cosysmart.home.ActivityHome
 import com.example.cosysmart.seller.management.ActivitySellerOrders
 import com.example.cosysmart.seller.management.ActivitySellerProducts
@@ -82,12 +85,33 @@ object BottomNavigationHelper {
                     true
                 }
                 R.id.nav_buyer_catalogo -> {
+                    if (activity !is ActivityCatalog) {
+                        val intent = Intent(activity, ActivityCatalog::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        }
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
                     true
                 }
-                R.id.nav_buyer_favoritos -> {
+                R.id.nav_buyer_carrito -> {
+                    if (activity !is ActivityCart) {
+                        val intent = Intent(activity, ActivityCart::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        }
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
                     true
                 }
                 R.id.nav_buyer_perfil -> {
+                    if (activity !is ActivityBuyerProfile) {
+                        val intent = Intent(activity, ActivityBuyerProfile::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        }
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
                     true
                 }
                 else -> false
