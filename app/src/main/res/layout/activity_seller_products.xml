@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FDFBF7">
+
     <RelativeLayout
         android:id="@+id/layoutHeaderTop"
         android:layout_width="match_parent"
@@ -46,6 +47,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <ImageButton
             android:id="@+id/btnSalesStats"
             android:layout_width="40dp"
@@ -122,6 +124,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="60dp"
@@ -207,6 +210,7 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -315,6 +319,19 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Crear producto"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#C05C38"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationViewSeller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="#FFFFFF" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationViewSeller"

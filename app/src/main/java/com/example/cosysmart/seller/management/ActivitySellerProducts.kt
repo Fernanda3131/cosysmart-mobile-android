@@ -6,9 +6,10 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cosysmart.R
 import com.example.cosysmart.home.ActivityHome
-import com.example.cosysmart.seller.management.ActivitySellerSales
+import com.example.cosysmart.seller.management.ActivitySellerCreateProduct
 import com.example.cosysmart.utils.BottomNavigationHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivitySellerProducts : AppCompatActivity() {
 
@@ -30,6 +31,12 @@ class ActivitySellerProducts : AppCompatActivity() {
             val intent = Intent(this, ActivitySellerSales::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
+            startActivity(intent)
+        }
+
+        val fabAddProduct = findViewById<FloatingActionButton>(R.id.fabAddProduct)
+        fabAddProduct.setOnClickListener {
+            val intent = Intent(this, ActivitySellerCreateProduct::class.java)
             startActivity(intent)
         }
 

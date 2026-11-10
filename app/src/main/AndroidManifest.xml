@@ -53,6 +53,8 @@
         <activity android:name=".buyer.ActivityBuyerProfile"/>
         <activity android:name=".payments.ActivityCheckout"/>
         <activity android:name=".payments.ActivityPaymentConfirmation"/>
+        <activity android:name=".buyer.ActivityProductDetail"/>
+        <activity android:name=".seller.management.ActivitySellerCreateProduct"/>
     </application>
 
 </manifest>
