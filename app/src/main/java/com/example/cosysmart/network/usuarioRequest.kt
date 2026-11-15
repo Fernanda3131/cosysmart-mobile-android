@@ -1,3 +1,4 @@
+
 package com.example.cosysmart.network
 
 data class UsuarioRequest(
@@ -22,8 +23,8 @@ data class LoginRequest(
 )
 
 data class LoginResponse(
+    val access_token: String?,
     val mensaje: String,
-    val access_token: String,
     val token_type: String,
     val usuario: UsuarioLoginRespuesta,
     val rol: String?
@@ -44,4 +45,26 @@ data class UsuarioItem(
     val correo: String,
     val rol: String,
     val estado: String
+)
+data class SolicitudRecuperacionRequest(
+    val correo: String
+)
+
+data class VerificarCodigoRequest(
+    val correo: String,
+    val codigo: String
+)
+
+data class RestablecerContrasenaRequest(
+    val token: String,
+    val nueva_contrasena: String
+)
+
+data class RecuperacionResponse(
+    val mensaje: String
+)
+
+data class VerificarCodigoResponse(
+    val mensaje: String,
+    val token: String
 )

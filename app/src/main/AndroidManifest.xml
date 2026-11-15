@@ -55,6 +55,13 @@
         <activity android:name=".payments.ActivityPaymentConfirmation"/>
         <activity android:name=".buyer.ActivityProductDetail"/>
         <activity android:name=".seller.management.ActivitySellerCreateProduct"/>
+        <activity
+            android:name=".login.ActivityVerifyCode"
+            android:exported="false" />
+        <activity
+            android:name=".login.ActivityResetPassword"
+            android:exported="false" />
+
     </application>
 
 </manifest>

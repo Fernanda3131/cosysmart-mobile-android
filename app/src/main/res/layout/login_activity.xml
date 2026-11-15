@@ -222,6 +222,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutDivider" />
+
         <LinearLayout
             android:id="@+id/layoutRegisterFooter"
             android:layout_width="wrap_content"
@@ -271,24 +272,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBiometricLogin"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="16dp"
-            android:text="Ingresar con Huella / Biometría"
-            android:textAllCaps="false"
-            android:textColor="#3D3028"
-            android:textSize="14sp"
-            app:cornerRadius="12dp"
-            app:strokeColor="#A68A78"
-            app:icon="@android:drawable/ic_menu_myplaces"
-            app:iconTint="#C86D51"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutRegisterFooter" />
-
         <TextView
             android:id="@+id/tvFooterInfo"
             android:layout_width="0dp"
@@ -302,7 +285,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnBiometricLogin" />
+            app:layout_constraintTop_toBottomOf="@id/layoutRegisterFooter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
