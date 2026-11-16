@@ -16,6 +16,18 @@ object RetrofitClient {
         appContext = context.applicationContext
     }
 
+    // Construye la URL de las fotografías del perfil.
+   fun construirUrl(ruta: String): String {
+        return if (
+            ruta.startsWith("http://") ||
+            ruta.startsWith("https://")
+        ) {
+            ruta
+        } else {
+            BASE_URL.trimEnd('/') + "/" + ruta.trimStart('/')
+        }
+    }
+
     val instance: ApiService by lazy {
 
         val okHttpClient = OkHttpClient.Builder()

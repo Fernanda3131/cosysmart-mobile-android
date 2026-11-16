@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="#FDFBF7">
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationViewHome"
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"
         app:elevation="8dp" />
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,7 +33,6 @@
                 android:layout_marginBottom="16dp"
                 android:gravity="center_vertical">
 
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,7 +47,7 @@
                         android:padding="6dp"
                         app:tint="#FFFFFF"
                         android:backgroundTint="#C86D51"
-                        android:layout_marginEnd="8dp"/>
+                        android:layout_marginEnd="8dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -76,7 +73,8 @@
                         android:src="@android:drawable/ic_menu_my_calendar"
                         app:tint="#3D3028"
                         android:layout_marginEnd="8dp"
-                        android:padding="8dp"/>
+                        android:padding="8dp"
+                        android:contentDescription="Perfil" />
 
                     <RelativeLayout
                         android:layout_width="40dp"
@@ -90,7 +88,8 @@
                             android:background="@android:color/transparent"
                             android:src="@android:drawable/ic_menu_upload"
                             app:tint="#3D3028"
-                            android:padding="8dp"/>
+                            android:padding="8dp"
+                            android:contentDescription="Acciones" />
 
                         <TextView
                             android:id="@+id/txtBadgeCount"
@@ -104,7 +103,7 @@
                             android:textSize="9sp"
                             android:textStyle="bold"
                             android:gravity="center"
-                            android:elevation="2dp"/>
+                            android:elevation="2dp" />
                     </RelativeLayout>
                 </LinearLayout>
             </RelativeLayout>
@@ -118,7 +117,7 @@
                 android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.05"
-                android:layout_marginBottom="4dp"/>
+                android:layout_marginBottom="4dp" />
 
             <TextView
                 android:id="@+id/txtHeaderTitle"
@@ -128,10 +127,10 @@
                 android:textColor="#3D3028"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
-
+                android:layout_marginBottom="16dp" />
 
             <LinearLayout
+                android:id="@+id/layoutSearchHome"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:background="@drawable/bg_search_input"
@@ -145,7 +144,7 @@
                     android:layout_height="20dp"
                     android:src="@android:drawable/ic_menu_search"
                     app:tint="#7A6D63"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="10dp" />
 
                 <EditText
                     android:id="@+id/edtSearchHome"
@@ -157,7 +156,7 @@
                     android:textColorHint="#A68A78"
                     android:textColor="#3D3028"
                     android:textSize="12sp"
-                    android:inputType="text"/>
+                    android:inputType="text" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -166,7 +165,7 @@
                     android:textColor="#C86D51"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    android:paddingStart="8dp"/>
+                    android:paddingStart="8dp" />
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
@@ -196,7 +195,7 @@
                             android:textColor="#A68A78"
                             android:textSize="9sp"
                             android:textStyle="bold"
-                            android:layout_marginBottom="4dp"/>
+                            android:layout_marginBottom="4dp" />
 
                         <TextView
                             android:id="@+id/txtBannerTitle"
@@ -206,7 +205,7 @@
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:layout_marginBottom="6dp"/>
+                            android:layout_marginBottom="6dp" />
 
                         <TextView
                             android:id="@+id/txtBannerDesc"
@@ -215,7 +214,7 @@
                             android:text="Muebles funcionales para vivir con más calma y armonía."
                             android:textColor="#D5CBC1"
                             android:textSize="10sp"
-                            android:layout_marginBottom="12dp"/>
+                            android:layout_marginBottom="12dp" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnBannerAction"
@@ -227,7 +226,7 @@
                             app:backgroundTint="#C86D51"
                             app:cornerRadius="8dp"
                             android:insetTop="0dp"
-                            android:insetBottom="0dp"/>
+                            android:insetBottom="0dp" />
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -238,15 +237,30 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_marginBottom="20dp">
-                <View android:layout_width="18dp" android:layout_height="6dp" android:background="#C86D51" android:layout_marginEnd="4dp" />
-                <View android:layout_width="6dp" android:layout_height="6dp" android:background="#D5CBC1" android:layout_marginEnd="4dp" />
-                <View android:layout_width="6dp" android:layout_height="6dp" android:background="#D5CBC1" />
+
+                <View
+                    android:layout_width="18dp"
+                    android:layout_height="6dp"
+                    android:background="#C86D51"
+                    android:layout_marginEnd="4dp" />
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="#D5CBC1"
+                    android:layout_marginEnd="4dp" />
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="#D5CBC1" />
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp">
+
                 <TextView
                     android:id="@+id/txtSection1Title"
                     android:layout_width="wrap_content"
@@ -255,7 +269,8 @@
                     android:textColor="#3D3028"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
+
                 <TextView
                     android:id="@+id/txtSection1Action"
                     android:layout_width="wrap_content"
@@ -265,20 +280,22 @@
                     android:textColor="#C86D51"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
             </RelativeLayout>
+
             <LinearLayout
                 android:id="@+id/layoutDynamicCards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp" />
 
-            </LinearLayout>
             <RelativeLayout
+                android:id="@+id/layoutCategoryHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -286,7 +303,8 @@
                     android:textColor="#3D3028"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -295,11 +313,11 @@
                     android:textColor="#C86D51"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
             </RelativeLayout>
 
-
             <LinearLayout
+                android:id="@+id/layoutCategoryCards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -316,20 +334,35 @@
                     app:cardElevation="1dp"
                     android:clickable="true"
                     android:focusable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:padding="8dp">
+
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@android:drawable/ic_menu_gallery"
                             app:tint="#C86D51"
-                            android:layout_marginBottom="6dp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Muebles" android:textSize="12sp" android:textColor="#3D3028" android:textStyle="bold"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Multifuncionales" android:textSize="9sp" android:textColor="#7A6D63"/>
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Muebles"
+                            android:textSize="12sp"
+                            android:textColor="#3D3028"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Multifuncionales"
+                            android:textSize="9sp"
+                            android:textColor="#7A6D63" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -343,20 +376,35 @@
                     app:cardElevation="1dp"
                     android:clickable="true"
                     android:focusable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:padding="8dp">
+
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@android:drawable/ic_menu_day"
                             app:tint="#C86D51"
-                            android:layout_marginBottom="6dp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Iluminación" android:textSize="12sp" android:textColor="#3D3028" android:textStyle="bold"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Luz ambiental" android:textSize="9sp" android:textColor="#7A6D63"/>
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Iluminación"
+                            android:textSize="12sp"
+                            android:textColor="#3D3028"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Luz ambiental"
+                            android:textSize="9sp"
+                            android:textColor="#7A6D63" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -370,20 +418,36 @@
                     app:cardElevation="1dp"
                     android:clickable="true"
                     android:focusable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:padding="8dp">
+
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@android:drawable/ic_menu_agenda"
                             app:tint="#C86D51"
-                            android:layout_marginBottom="6dp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Almacenaje" android:textSize="11sp" android:textColor="#3D3028" android:textStyle="bold" android:maxLines="1"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Todo en orden" android:textSize="9sp" android:textColor="#7A6D63"/>
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Almacenaje"
+                            android:textSize="11sp"
+                            android:textColor="#3D3028"
+                            android:textStyle="bold"
+                            android:maxLines="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Todo en orden"
+                            android:textSize="9sp"
+                            android:textColor="#7A6D63" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -392,6 +456,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -399,8 +464,10 @@
                     android:textColor="#3D3028"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
+
                 <TextView
+                    android:id="@+id/txtHomeCatalogAction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -408,109 +475,26 @@
                     android:textColor="#C86D51"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/layoutHomeProducts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginBottom="20dp">
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="2dp"
-                    android:clickable="true"
-                    android:focusable="true">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="110dp"
-                            android:background="#EFECE6">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Más vendido"
-                                android:textSize="9sp"
-                                android:textColor="#FFFFFF"
-                                android:background="#5A6B5C"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="3dp"
-                                android:layout_margin="8dp"
-                                android:textStyle="bold"/>
-                            <ImageButton
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_margin="8dp"
-                                android:background="@drawable/bg_search_input"
-                                android:src="@android:drawable/ic_menu_myplaces"
-                                app:tint="#C86D51"
-                                android:padding="6dp"/>
-                        </RelativeLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sofá Nórdico" android:textSize="12sp" android:textColor="#3D3028" android:textStyle="bold"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$899.000 COP" android:textSize="12sp" android:textColor="#C86D51" android:textStyle="bold" android:layout_marginTop="2dp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="6dp"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="2dp"
-                    android:clickable="true"
-                    android:focusable="true">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="110dp"
-                            android:background="#EFECE6">
-                            <ImageButton
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_margin="8dp"
-                                android:background="@drawable/bg_search_input"
-                                android:src="@android:drawable/ic_menu_myplaces"
-                                app:tint="#A68A78"
-                                android:padding="6dp"/>
-                        </RelativeLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lámpara Serena" android:textSize="12sp" android:textColor="#3D3028" android:textStyle="bold"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$189.000 COP" android:textSize="12sp" android:textColor="#C86D51" android:textStyle="bold" android:layout_marginTop="2dp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
+            <TextView
+                android:id="@+id/txtHomeProductsStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cargando productos..."
+                android:textColor="#7A6D63"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:visibility="visible" />
 
         </LinearLayout>
     </ScrollView>

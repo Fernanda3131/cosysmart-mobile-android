@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.cosysmart.login.LoginActivity // <--- 1. Importamos LoginActivity
+import com.example.cosysmart.login.LoginActivity
 import com.example.cosysmart.register.RegisterActivity
 
 class MainActivity : ComponentActivity() {

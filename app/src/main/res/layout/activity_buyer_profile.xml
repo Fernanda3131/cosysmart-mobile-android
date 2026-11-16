@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,11 +32,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:text="CosySmart"
                 android:textColor="#2C221E"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -74,7 +75,10 @@
                         android:layout_height="60dp"
                         android:background="#EFECE6"
                         android:scaleType="centerCrop"
-                        android:src="@android:drawable/ic_menu_my_calendar" />
+                        android:src="@android:drawable/ic_menu_my_calendar"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="Cambiar foto de perfil" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -86,18 +90,20 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tvNombreBuyer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="María Fernanda León"
+                            android:text="Cargando nombre..."
                             android:textColor="#2C221E"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvCorreoBuyer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="maria.leon@email.com"
+                            android:text="Cargando correo..."
                             android:textColor="#7A6F68"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -150,15 +156,48 @@
                         android:orientation="horizontal"
                         android:padding="14dp">
 
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_mapmode" app:tint="#C05C38"/>
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                            <TextView android:text="Direcciones guardadas" android:textStyle="bold" android:textSize="13sp" android:textColor="#2C221E" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="Cra. 45 # 100-20, Bogotá D.C." android:textSize="11sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_mapmode"
+                            app:tint="#C05C38" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Direcciones guardadas"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="#2C221E" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cra. 45 # 100-20, Bogotá D.C."
+                                android:textSize="11sp"
+                                android:textColor="#7A6F68" />
                         </LinearLayout>
-                        <TextView android:text="›" android:textSize="20sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textSize="20sp"
+                            android:textColor="#7A6F68" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0EAE1" android:layout_marginStart="50dp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F0EAE1"
+                        android:layout_marginStart="50dp" />
 
                     <LinearLayout
                         android:id="@+id/btnOrderHistory"
@@ -169,15 +208,48 @@
                         android:orientation="horizontal"
                         android:padding="14dp">
 
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#C05C38"/>
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                            <TextView android:text="Historial de pedidos" android:textStyle="bold" android:textSize="13sp" android:textColor="#2C221E" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="#CS-84920 · En camino" android:textSize="11sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_agenda"
+                            app:tint="#C05C38" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Historial de pedidos"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="#2C221E" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="#CS-84920 · En camino"
+                                android:textSize="11sp"
+                                android:textColor="#7A6F68" />
                         </LinearLayout>
-                        <TextView android:text="›" android:textSize="20sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textSize="20sp"
+                            android:textColor="#7A6F68" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0EAE1" android:layout_marginStart="50dp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F0EAE1"
+                        android:layout_marginStart="50dp" />
 
                     <LinearLayout
                         android:id="@+id/btnFavoriteProducts"
@@ -188,16 +260,46 @@
                         android:orientation="horizontal"
                         android:padding="14dp">
 
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_my_calendar" app:tint="#C05C38"/>
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                            <TextView android:text="Productos favoritos" android:textStyle="bold" android:textSize="13sp" android:textColor="#2C221E" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="4 artículos guardados" android:textSize="11sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_my_calendar"
+                            app:tint="#C05C38" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Productos favoritos"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="#2C221E" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4 artículos guardados"
+                                android:textSize="11sp"
+                                android:textColor="#7A6F68" />
                         </LinearLayout>
-                        <TextView android:text="›" android:textSize="20sp" android:textColor="#7A6F68" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textSize="20sp"
+                            android:textColor="#7A6F68" />
                     </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -227,16 +329,59 @@
                         android:text="Estilos favoritos:"
                         android:textColor="#7A6F68"
                         android:textSize="12sp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
-                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Minimalista" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Nórdico" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:background="#F2ECE4" android:textColor="#4A3F38" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Industrial" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Natural" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="#6A7A65"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Minimalista"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="#6A7A65"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Nórdico"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="#F2ECE4"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Industrial"
+                            android:textColor="#4A3F38"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#6A7A65"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Natural"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <TextView
@@ -246,15 +391,47 @@
                         android:text="Ambientes de interés:"
                         android:textColor="#7A6F68"
                         android:textSize="12sp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
-                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Sala" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:background="#F2ECE4" android:textColor="#4A3F38" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Dormitorio" android:layout_marginEnd="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:background="#6A7A65" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Espacios pequeños" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="#6A7A65"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Sala"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="#F2ECE4"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Dormitorio"
+                            android:textColor="#4A3F38"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#6A7A65"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="Espacios pequeños"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </LinearLayout>

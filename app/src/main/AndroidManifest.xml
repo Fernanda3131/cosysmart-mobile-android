@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Cámara opcional: permite instalar la app en dispositivos sin cámara -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +19,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CosySmart">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -28,39 +34,75 @@
             android:name=".register.RegisterActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".register.SecurityPoliciesActivity"
             android:exported="false" />
+
         <activity
             android:name=".login.LoginActivity"
             android:exported="false" />
 
         <activity android:name=".admin.ActivityHomeAdmin" />
         <activity android:name=".home.ActivityHome" />
-        <activity android:name=".admin.users.ActivityAdminUsers"/>
-        <activity android:name=".login.ActivityForgotPassword"/>
+        <activity android:name=".admin.users.ActivityAdminUsers" />
+
+        <activity android:name=".login.ActivityForgotPassword" />
+
         <activity
             android:name=".admin.AdminFinanceActivity"
             android:exported="false" />
-        <activity android:name=".admin.products.AdminCatalogActivity"
-            android:exported="false"/>
-        <activity android:name=".seller.management.ActivitySellerOrders"/>
-        <activity android:name=".seller.management.ActivitySellerProducts"/>
-        <activity android:name=".seller.management.ActivitySellerSales"/>
-        <activity android:name=".seller.profile.ActivitySellerProfile"/>
-        <activity android:name=".buyer.ActivityCart"/>
-        <activity android:name=".buyer.ActivityCatalog"/>
-        <activity android:name=".buyer.ActivityBuyerProfile"/>
-        <activity android:name=".payments.ActivityCheckout"/>
-        <activity android:name=".payments.ActivityPaymentConfirmation"/>
-        <activity android:name=".buyer.ActivityProductDetail"/>
-        <activity android:name=".seller.management.ActivitySellerCreateProduct"/>
+
+        <activity
+            android:name=".admin.products.AdminCatalogActivity"
+            android:exported="false" />
+
+        <activity android:name=".seller.management.ActivitySellerOrders" />
+        <activity android:name=".seller.management.ActivitySellerProducts" />
+        <activity android:name=".seller.management.ActivitySellerSales" />
+        <activity android:name=".seller.profile.ActivitySellerProfile" />
+
+        <activity android:name=".buyer.ActivityCart" />
+        <activity android:name=".buyer.ActivityCatalog" />
+        <activity android:name=".buyer.ActivityBuyerProfile" />
+
+        <activity android:name=".payments.ActivityCheckout" />
+        <activity android:name=".payments.ActivityPaymentConfirmation" />
+
+        <activity android:name=".buyer.ActivityProductDetail" />
+        <activity android:name=".seller.management.ActivitySellerCreateProduct" />
+        <activity
+            android:name=".seller.management.ActivitySellerEditProduct"
+            android:exported="false" />
+        <activity android:name=".seller.management.ActivitySellerOrderDetails" />
+        <activity android:name=".admin.products.ActivityAdminEditProduct"/>
+        <activity
+            android:name=".admin.users.ActivityAdminUserDetail"
+            android:exported="false" />
+
+        <activity
+            android:name=".admin.users.ActivityAdminEditUser"
+            android:exported="false" />
+
+
         <activity
             android:name=".login.ActivityVerifyCode"
             android:exported="false" />
+
         <activity
             android:name=".login.ActivityResetPassword"
             android:exported="false" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+
+        </provider>
 
     </application>
 

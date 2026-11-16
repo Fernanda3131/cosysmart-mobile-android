@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FDFBF7">
 
-    <!-- Header Superior -->
     <RelativeLayout
         android:id="@+id/layoutHeaderTop"
         android:layout_width="match_parent"
@@ -51,7 +51,6 @@
             app:tint="#2C221E" />
     </RelativeLayout>
 
-    <!-- Título principal -->
     <TextView
         android:id="@+id/tvCreateTitle"
         android:layout_width="wrap_content"
@@ -70,20 +69,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="2dp"
         android:text="Completa los datos para publicar en el catálogo"
         android:textColor="#8C7D75"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCreateTitle" />
 
-    <!-- Formulario con Scroll -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
         android:clipToPadding="false"
+        android:fillViewport="false"
         android:paddingBottom="16dp"
         app:layout_constraintBottom_toTopOf="@id/layoutFooterAction"
         app:layout_constraintTop_toBottomOf="@id/tvCreateSubtitle">
@@ -92,11 +90,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="24dp">
+            android:paddingHorizontal="24dp"
+            android:paddingBottom="12dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="1dp">
@@ -107,11 +107,18 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Nombre del producto -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="6dp"
+                        android:text="Información del producto"
+                        android:textColor="#C05C38"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Nombre del producto"
                         android:textColor="#2C221E"
                         android:textSize="13sp"
@@ -121,52 +128,48 @@
                         android:id="@+id/etProductName"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
+                        android:layout_marginTop="6dp"
                         android:layout_marginBottom="14dp"
                         android:background="@drawable/bg_search_input"
                         android:hint="Ej: Sofá modular moderno"
                         android:paddingHorizontal="12dp"
+                        android:singleLine="true"
                         android:textColor="#2C221E"
                         android:textSize="12sp" />
 
-                    <!-- Categoría -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="6dp"
                         android:text="Categoría"
                         android:textColor="#2C221E"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/etProductCategory"
+                    <Spinner
+                        android:id="@+id/spProductCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
                         android:layout_marginBottom="14dp"
                         android:background="@drawable/bg_search_input"
-                        android:hint="Ej: Muebles multifuncionales"
-                        android:paddingHorizontal="12dp"
-                        android:textColor="#2C221E"
-                        android:textSize="12sp" />
+                        android:paddingHorizontal="10dp" />
 
-                    <!-- Fila Precio y Stock -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="14dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="14dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="6dp"
                             android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="6dp"
                                 android:text="Precio ($ COP)"
                                 android:textColor="#2C221E"
                                 android:textSize="13sp"
@@ -176,10 +179,11 @@
                                 android:id="@+id/etProductPrice"
                                 android:layout_width="match_parent"
                                 android:layout_height="44dp"
+                                android:layout_marginTop="6dp"
                                 android:background="@drawable/bg_search_input"
                                 android:hint="899000"
                                 android:inputType="numberDecimal"
-                                android:paddingHorizontal="12dp"
+                                android:paddingHorizontal="10dp"
                                 android:textColor="#2C221E"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -187,14 +191,13 @@
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="6dp"
                             android:layout_weight="1"
+                            android:layout_marginStart="6dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="6dp"
                                 android:text="Stock / Unidades"
                                 android:textColor="#2C221E"
                                 android:textSize="13sp"
@@ -204,20 +207,19 @@
                                 android:id="@+id/etProductStock"
                                 android:layout_width="match_parent"
                                 android:layout_height="44dp"
+                                android:layout_marginTop="6dp"
                                 android:background="@drawable/bg_search_input"
                                 android:hint="15"
                                 android:inputType="number"
-                                android:paddingHorizontal="12dp"
+                                android:paddingHorizontal="10dp"
                                 android:textColor="#2C221E"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- Descripción -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="6dp"
                         android:text="Descripción"
                         android:textColor="#2C221E"
                         android:textSize="13sp"
@@ -227,6 +229,7 @@
                         android:id="@+id/etProductDescription"
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
+                        android:layout_marginTop="6dp"
                         android:background="@drawable/bg_search_input"
                         android:gravity="top"
                         android:hint="Detalles y materiales del producto..."
@@ -237,10 +240,215 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Características físicas"
+                        android:textColor="#C05C38"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Peso"
+                        android:textColor="#2C221E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="14dp">
+
+                        <EditText
+                            android:id="@+id/etProductWeight"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_search_input"
+                            android:hint="Ej: 15.500"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="12dp"
+                            android:textColor="#2C221E"
+                            android:textSize="12sp" />
+
+                        <Spinner
+                            android:id="@+id/spWeightUnit"
+                            android:layout_width="120dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_search_input"
+                            android:paddingHorizontal="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dimensiones (cm)"
+                        android:textColor="#2C221E"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etProductHeight"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/bg_search_input"
+                            android:hint="Alto"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="6dp"
+                            android:textColor="#2C221E"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/etProductWidth"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/bg_search_input"
+                            android:hint="Ancho"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="6dp"
+                            android:textColor="#2C221E"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/etProductDepth"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/bg_search_input"
+                            android:hint="Prof."
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="6dp"
+                            android:textColor="#2C221E"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="Color"
+                        android:textColor="#2C221E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etProductColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_search_input"
+                        android:hint="Ej: Natural, blanco, negro..."
+                        android:paddingHorizontal="12dp"
+                        android:singleLine="true"
+                        android:textColor="#2C221E"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fotografías del producto"
+                        android:textColor="#C05C38"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvPhotoCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="Selecciona entre 1 y 5 fotografías"
+                        android:textColor="#8C7D75"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTakeProductPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:text="Tomar fotografía"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#C05C38"
+                        app:cornerRadius="10dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSelectProductImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Seleccionar de galería"
+                        android:textAllCaps="false"
+                        android:textColor="#C05C38"
+                        app:backgroundTint="#F7EAE4"
+                        app:cornerRadius="10dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/layoutProductPreviews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </ScrollView>
 
-    <!-- Footer con Botón de Guardar -->
     <LinearLayout
         android:id="@+id/layoutFooterAction"
         android:layout_width="match_parent"
@@ -256,7 +464,7 @@
             android:id="@+id/btnSaveProduct"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Guardar y publicar producto  →"
+            android:text="Guardar y publicar producto"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
