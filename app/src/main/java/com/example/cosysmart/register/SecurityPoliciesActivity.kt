@@ -7,6 +7,8 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.example.cosysmart.R
 
+// Activity de políticas de seguridad
+
 class SecurityPoliciesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

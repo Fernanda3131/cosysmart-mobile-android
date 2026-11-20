@@ -15,8 +15,13 @@ import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
+import com.example.cosysmart.network.CrearOrdenRequest
+import com.example.cosysmart.network.OrdenResponse
 
+// Sevice para las peticiones a la API
 interface ApiService {
+
+    // USUARIOS Y AUTENTICACIÓN
 
     @POST("usuarios/")
     fun registrarUsuario(
@@ -27,21 +32,9 @@ interface ApiService {
     fun loginUsuario(
         @Body request: LoginRequest
     ): Call<LoginResponse>
-    
-    @POST("biometria/dispositivos")
-    fun registrarDispositivo(
-        @Body request: RegisterDeviceRequest
-    ): Call<RegisterDeviceResponse>
 
-    @POST("biometria/desafio")
-    fun solicitarDesafio(
-        @Body request: ChallengeRequest
-    ): Call<ChallengeResponse>
-
-    @POST("biometria/verificar")
-    fun verificarBiometria(
-        @Body request: VerifyBiometricRequest
-    ): Call<BiometriaLoginResponse>
+    @GET("auth/me")
+    fun obtenerUsuarioActual(): Call<UsuarioActualResponse>
 
     @POST("auth/recuperar")
     fun solicitarRecuperacion(
@@ -58,18 +51,38 @@ interface ApiService {
         @Body request: RestablecerContrasenaRequest
     ): Call<RecuperacionResponse>
 
-
-    @GET("auth/me")
-    fun obtenerUsuarioActual(): Call<UsuarioActualResponse>
-
     @Multipart
     @PUT("usuarios/me/foto")
     fun actualizarFotoPerfil(
         @Part foto: MultipartBody.Part
     ): Call<FotoPerfilResponse>
 
+
+    // BIOMETRÍA
+
+    @POST("biometria/dispositivos")
+    fun registrarDispositivo(
+        @Body request: RegisterDeviceRequest
+    ): Call<RegisterDeviceResponse>
+
+    @POST("biometria/desafio")
+    fun solicitarDesafio(
+        @Body request: ChallengeRequest
+    ): Call<ChallengeResponse>
+
+    @POST("biometria/verificar")
+    fun verificarBiometria(
+        @Body request: VerifyBiometricRequest
+    ): Call<BiometriaLoginResponse>
+
+
+    // CATEGORÍAS
+
     @GET("categorias/")
     fun listarCategorias(): Call<List<CategoriaResponse>>
+
+
+    // PRODUCTOS
 
     @Multipart
     @POST("productos/")
@@ -93,6 +106,11 @@ interface ApiService {
         @Query("vista") vista: String
     ): Call<List<ProductoResponse>>
 
+    @GET("productos/{id_producto}")
+    fun obtenerProductoPorId(
+        @Path("id_producto") idProducto: Int
+    ): Call<ProductoResponse>
+
     @Multipart
     @PUT("productos/{id_producto}")
     fun actualizarProducto(
@@ -111,12 +129,14 @@ interface ApiService {
         @Part fotos: List<MultipartBody.Part>?
     ): Call<ResponseBody>
 
-
     @PATCH("productos/{id_producto}/estado")
     fun cambiarEstadoProducto(
         @Path("id_producto") idProducto: Int,
         @Body request: EstadoProductoRequest
     ): Call<ResponseBody>
+
+
+    // ADMINISTRACIÓN DE USUARIOS
 
     @GET("usuarios/")
     fun listarUsuariosAdmin(
@@ -125,7 +145,6 @@ interface ApiService {
         @Query("id_rol") idRol: Int? = null
     ): Call<List<UsuarioAdminResponse>>
 
-
     @GET("usuarios/{id_usuario}")
     fun obtenerUsuarioAdmin(
         @Path("id_usuario") idUsuario: Int
@@ -133,7 +152,6 @@ interface ApiService {
 
     @GET("usuarios/roles/activos")
     fun listarRolesAdmin(): Call<List<RolAdminResponse>>
-
 
     @POST("usuarios/admin")
     fun crearUsuarioAdmin(
@@ -155,4 +173,64 @@ interface ApiService {
     fun reactivarUsuarioAdmin(
         @Path("id_usuario") idUsuario: Int
     ): Call<UsuarioAdminMensajeResponse>
+
+
+    // CARRITO DE COMPRAS
+
+    @POST("carrito/agregar")
+    fun agregarProductoCarrito(
+        @Body datos: AgregarProductoCarritoRequest
+    ): Call<CarritoResponse>
+
+    @GET("carrito/")
+    fun obtenerCarrito(): Call<CarritoResponse>
+
+    @PATCH("carrito/detalles/{id_detalle}")
+    fun actualizarCantidadCarrito(
+        @Path("id_detalle") idDetalle: Int,
+        @Body datos: ActualizarCantidadCarritoRequest
+    ): Call<CarritoResponse>
+
+    @DELETE("carrito/detalles/{id_detalle}")
+    fun eliminarProductoCarrito(
+        @Path("id_detalle") idDetalle: Int
+    ): Call<CarritoResponse>
+
+    @DELETE("carrito/")
+    fun vaciarCarrito(): Call<CarritoResponse>
+    // ÓRDENES
+
+    @POST("ordenes/crear")
+    fun crearOrden(
+        @Body request: CrearOrdenRequest
+    ): Call<OrdenResponse>
+
+    @GET("ordenes/")
+    fun obtenerHistorialOrdenes(): Call<List<OrdenResponse>>
+
+    @GET("ordenes/{id_orden}")
+    fun obtenerOrdenPorId(
+        @Path("id_orden") idOrden: Int
+    ): Call<OrdenResponse>
+
+    @PATCH("ordenes/{id_orden}/cancelar")
+    fun cancelarOrden(
+        @Path("id_orden") idOrden: Int
+    ): Call<CancelarOrdenResponse>
+
+    @GET("pagos/wompi/pendiente/{id_orden}")
+    fun obtenerPagoWompiPendiente(
+        @Path("id_orden") idOrden: Int
+    ): Call<PagoWompiResponse>
+
+    @POST("pagos/wompi/iniciar")
+    fun iniciarPagoWompi(
+        @Body request: IniciarPagoRequest
+    ): Call<PagoWompiResponse>
+
+    @GET("pagos/wompi/estado/{id_orden}")
+    fun consultarEstadoPagoWompi(
+        @Path("id_orden") idOrden: Int
+    ): Call<EstadoPagoWompiResponse>
+
 }

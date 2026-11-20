@@ -15,6 +15,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+// Activity para verificar código de recuperación de contraseña
+
 class ActivityVerifyCode : AppCompatActivity() {
 
     private lateinit var etCodigo: EditText

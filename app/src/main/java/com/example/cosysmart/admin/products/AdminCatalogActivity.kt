@@ -440,8 +440,6 @@ class AdminCatalogActivity : AppCompatActivity() {
             }
         }
 
-        // BOTÓN EDITAR
-
         val btnEditar = MaterialButton(
             this,
             null,
@@ -467,8 +465,6 @@ class AdminCatalogActivity : AppCompatActivity() {
                 marginEnd = dp(6)
             }
         }
-
-        // BOTÓN MODERACIÓN
 
         val btnModeracion = MaterialButton(
             this,
@@ -501,8 +497,6 @@ class AdminCatalogActivity : AppCompatActivity() {
             }
         }
 
-        // ABRIR EDICIÓN DE PRODUCTO
-
         btnEditar.setOnClickListener {
 
             val intent = Intent(
@@ -518,7 +512,6 @@ class AdminCatalogActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // ACCIÓN DE MODERACIÓN (CAMBIAR ESTADO)
 
         btnModeracion.setOnClickListener {
 

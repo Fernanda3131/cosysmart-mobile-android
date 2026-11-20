@@ -16,6 +16,8 @@ import com.example.cosysmart.seller.management.ActivitySellerProducts
 import com.example.cosysmart.seller.profile.ActivitySellerProfile
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// Helper object for setting up BottomNavigationView
+
 object BottomNavigationHelper {
 
     fun setupAdminNav(activity: Activity, bottomNavigationView: BottomNavigationView, currentItemId: Int) {

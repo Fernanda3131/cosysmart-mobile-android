@@ -1,9 +1,10 @@
-
 package com.example.cosysmart.buyer
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+// Activity implementada para el perfil del comprador
 class ActivityBuyerProfile : AppCompatActivity() {
 
     private lateinit var tvNombre: TextView
@@ -66,6 +68,15 @@ class ActivityBuyerProfile : AppCompatActivity() {
             bottomNav,
             R.id.nav_buyer_perfil
         )
+
+        val btnOrderHistory = findViewById<LinearLayout>(
+            R.id.btnOrderHistory
+        )
+
+        btnOrderHistory.setOnClickListener {
+            val intent = Intent(this, ActivityOrderHistory::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun cargarDatosComprador() {

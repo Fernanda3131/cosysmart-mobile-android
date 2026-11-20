@@ -8,6 +8,8 @@ import com.example.cosysmart.R
 import com.example.cosysmart.utils.BottomNavigationHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// Activity para ver estadísticas de ventas
+
 class ActivitySellerSales : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,6 +9,8 @@ import com.example.cosysmart.R
 import com.example.cosysmart.utils.BottomNavigationHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// Activity para ver el balance financiero del administrador
+
 class AdminFinanceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

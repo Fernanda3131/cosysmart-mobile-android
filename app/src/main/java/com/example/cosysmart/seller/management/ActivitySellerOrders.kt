@@ -9,6 +9,8 @@ import com.example.cosysmart.home.ActivityHome
 import com.example.cosysmart.utils.BottomNavigationHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// Activity para ver pedidos
+
 class ActivitySellerOrders : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

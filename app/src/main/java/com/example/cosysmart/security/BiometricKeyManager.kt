@@ -11,6 +11,7 @@ import java.security.Signature
 import java.security.spec.ECGenParameterSpec
 import java.util.Locale
 
+// Manager de llaves biométricas
 object BiometricKeyManager {
 
     private const val KEY_ALIAS = "CosySmartBiometricKey"

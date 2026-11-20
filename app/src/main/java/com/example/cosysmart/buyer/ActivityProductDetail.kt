@@ -1,8 +1,10 @@
+
 package com.example.cosysmart.buyer
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -11,9 +13,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cosysmart.R
+import com.example.cosysmart.network.AgregarProductoCarritoRequest
+import com.example.cosysmart.network.CarritoResponse
 import com.example.cosysmart.network.ProductoResponse
 import com.example.cosysmart.network.RetrofitClient
 import com.google.android.material.button.MaterialButton
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,7 +53,8 @@ class ActivityProductDetail : AppCompatActivity() {
     private lateinit var tvProductWeight: TextView
     private lateinit var tvProductDescription: TextView
 
-    private val imageExecutor: ExecutorService = Executors.newFixedThreadPool(3)
+    private val imageExecutor: ExecutorService =
+        Executors.newFixedThreadPool(3)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +67,7 @@ class ActivityProductDetail : AppCompatActivity() {
 
         val idProducto = intent.getIntExtra("ID_PRODUCTO", -1)
 
-        if (idProducto == -1) {
+        if (idProducto <= 0) {
             Toast.makeText(
                 this,
                 "No se recibió un producto válido",
@@ -82,7 +88,8 @@ class ActivityProductDetail : AppCompatActivity() {
         btnAddToCart = findViewById(R.id.btnAddToCart)
 
         imgMainProduct = findViewById(R.id.imgMainProduct)
-        layoutProductThumbnails = findViewById(R.id.layoutProductThumbnails)
+        layoutProductThumbnails =
+            findViewById(R.id.layoutProductThumbnails)
 
         tvProductName = findViewById(R.id.tvProductName)
         tvProductCategory = findViewById(R.id.tvProductCategory)
@@ -96,8 +103,11 @@ class ActivityProductDetail : AppCompatActivity() {
 
     private fun configurarEventos() {
 
-        val btnTopCart = findViewById<RelativeLayout>(R.id.btnTopCart)
-        val btnFav = findViewById<ImageButton>(R.id.btnFav)
+        val btnTopCart =
+            findViewById<RelativeLayout>(R.id.btnTopCart)
+
+        val btnFav =
+            findViewById<ImageButton>(R.id.btnFav)
 
         btnMinus.setOnClickListener {
             if (quantity > 1) {
@@ -124,15 +134,17 @@ class ActivityProductDetail : AppCompatActivity() {
                 this,
                 ActivityCart::class.java
             ).apply {
-                flags = android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                        android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
+                flags =
+                    android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
 
             startActivity(intent)
         }
 
         btnAddToCart.setOnClickListener {
-            val producto = productoActual ?: return@setOnClickListener
+            val producto = productoActual
+                ?: return@setOnClickListener
 
             if (stockDisponible <= 0) {
                 Toast.makeText(
@@ -140,14 +152,11 @@ class ActivityProductDetail : AppCompatActivity() {
                     "Este producto no tiene existencias",
                     Toast.LENGTH_SHORT
                 ).show()
+
                 return@setOnClickListener
             }
 
-            Toast.makeText(
-                this,
-                "${producto.nombre}: $quantity unidad(es)",
-                Toast.LENGTH_SHORT
-            ).show()
+            agregarProductoAlCarrito(producto)
         }
 
         btnFav.setOnClickListener {
@@ -159,28 +168,153 @@ class ActivityProductDetail : AppCompatActivity() {
         }
     }
 
+    private fun agregarProductoAlCarrito(producto: ProductoResponse) {
+
+        if (quantity <= 0 || quantity > stockDisponible) {
+            Toast.makeText(
+                this,
+                "La cantidad seleccionada no es válida",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
+        val cantidadSeleccionada = quantity
+
+        val request = AgregarProductoCarritoRequest(
+            idProducto = producto.idProducto,
+            cantidad = cantidadSeleccionada
+        )
+
+        val textoOriginal = btnAddToCart.text.toString()
+
+        btnAddToCart.isEnabled = false
+        btnAddToCart.text = "Agregando..."
+
+        RetrofitClient.instance.agregarProductoCarrito(request)
+            .enqueue(object : Callback<CarritoResponse> {
+
+                override fun onResponse(
+                    call: Call<CarritoResponse>,
+                    response: Response<CarritoResponse>
+                ) {
+                    btnAddToCart.isEnabled = stockDisponible > 0
+                    btnAddToCart.text = textoOriginal
+
+                    if (response.isSuccessful) {
+
+                        val carrito = response.body()
+
+                        if (carrito == null) {
+                            Toast.makeText(
+                                this@ActivityProductDetail,
+                                "El servidor no devolvió la información del carrito",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            return
+                        }
+
+                        Toast.makeText(
+                            this@ActivityProductDetail,
+                            "${producto.nombre}: $cantidadSeleccionada unidad(es) agregada(s) al carrito",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        Log.d(
+                            "ActivityProductDetail",
+                            "Producto agregado. ID carrito: ${carrito.idCarrito}, Total: ${carrito.total}"
+                        )
+
+                    } else {
+
+                        val detalleServidor = try {
+                            JSONObject(
+                                response.errorBody()?.string() ?: "{}"
+                            ).optString("detail")
+                        } catch (e: Exception) {
+                            ""
+                        }
+
+                        val mensaje = when (response.code()) {
+                            400 -> detalleServidor.takeIf {
+                                it.isNotBlank()
+                            } ?: "No se pudo agregar el producto"
+
+                            401 -> "Tu sesión expiró. Inicia sesión nuevamente"
+
+                            403 -> "No tienes permisos para utilizar el carrito"
+
+                            404 -> "El producto ya no está disponible"
+
+                            422 -> "Los datos enviados no son válidos"
+
+                            else -> detalleServidor.takeIf {
+                                it.isNotBlank()
+                            } ?: "Error al agregar el producto. Código: ${response.code()}"
+                        }
+
+                        Log.e(
+                            "ActivityProductDetail",
+                            "Error agregando al carrito: ${response.code()} - $mensaje"
+                        )
+
+                        Toast.makeText(
+                            this@ActivityProductDetail,
+                            mensaje,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(
+                    call: Call<CarritoResponse>,
+                    t: Throwable
+                ) {
+                    btnAddToCart.isEnabled = stockDisponible > 0
+                    btnAddToCart.text = textoOriginal
+
+                    Log.e(
+                        "ActivityProductDetail",
+                        "Error de conexión al agregar al carrito",
+                        t
+                    )
+
+                    Toast.makeText(
+                        this@ActivityProductDetail,
+                        "No fue posible conectar con el servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+    }
+
     private fun cargarProducto(idProducto: Int) {
 
         tvProductDescription.text = "Cargando información..."
 
-        RetrofitClient.instance.listarProductos("catalogo")
-            .enqueue(object : Callback<List<ProductoResponse>> {
+        RetrofitClient.instance.obtenerProductoPorId(idProducto)
+            .enqueue(object : Callback<ProductoResponse> {
 
                 override fun onResponse(
-                    call: Call<List<ProductoResponse>>,
-                    response: Response<List<ProductoResponse>>
+                    call: Call<ProductoResponse>,
+                    response: Response<ProductoResponse>
                 ) {
                     if (!response.isSuccessful) {
-                        mostrarError("No fue posible consultar el producto")
+                        val mensaje = when (response.code()) {
+                            404 -> "El producto ya no está disponible"
+                            else -> "No fue posible consultar el producto"
+                        }
+
+                        mostrarError(mensaje)
                         return
                     }
 
-                    val producto = response.body()?.find {
-                        it.idProducto == idProducto
-                    }
+                    val producto = response.body()
 
                     if (producto == null) {
-                        mostrarError("El producto ya no está disponible")
+                        mostrarError(
+                            "El servidor no devolvió información del producto"
+                        )
                         return
                     }
 
@@ -189,10 +323,18 @@ class ActivityProductDetail : AppCompatActivity() {
                 }
 
                 override fun onFailure(
-                    call: Call<List<ProductoResponse>>,
+                    call: Call<ProductoResponse>,
                     t: Throwable
                 ) {
-                    mostrarError("Error de conexión al cargar el producto")
+                    Log.e(
+                        "ActivityProductDetail",
+                        "Error consultando producto",
+                        t
+                    )
+
+                    mostrarError(
+                        "Error de conexión al cargar el producto"
+                    )
                 }
             })
     }
@@ -222,25 +364,28 @@ class ActivityProductDetail : AppCompatActivity() {
         tvQuantity.text = quantity.toString()
 
         tvSelectedColor.text =
-            producto.color?.takeIf { it.isNotBlank() } ?: "No especificado"
+            producto.color?.takeIf { it.isNotBlank() }
+                ?: "No especificado"
 
         val dimensiones = listOfNotNull(
-            producto.alto?.let { "Alto: ${it} cm" },
-            producto.ancho?.let { "Ancho: ${it} cm" },
-            producto.profundidad?.let { "Profundidad: ${it} cm" }
+            producto.alto?.let { "Alto: $it cm" },
+            producto.ancho?.let { "Ancho: $it cm" },
+            producto.profundidad?.let { "Profundidad: $it cm" }
         )
 
-        tvProductDimensions.text = if (dimensiones.isNotEmpty()) {
-            dimensiones.joinToString(" • ")
-        } else {
-            "Dimensiones: No especificadas"
-        }
+        tvProductDimensions.text =
+            if (dimensiones.isNotEmpty()) {
+                dimensiones.joinToString(" • ")
+            } else {
+                "Dimensiones: No especificadas"
+            }
 
-        tvProductWeight.text = if (producto.peso != null) {
-            "Peso: ${producto.peso} ${producto.unidadPeso ?: ""}".trim()
-        } else {
-            "Peso: No especificado"
-        }
+        tvProductWeight.text =
+            if (producto.peso != null) {
+                "Peso: ${producto.peso} ${producto.unidadPeso ?: ""}".trim()
+            } else {
+                "Peso: No especificado"
+            }
 
         tvProductDescription.text =
             producto.descripcion?.takeIf { it.isNotBlank() }
@@ -266,7 +411,7 @@ class ActivityProductDetail : AppCompatActivity() {
             }
         }
 
-        imagenes.forEachIndexed { index, ruta ->
+        imagenes.forEach { ruta ->
 
             val thumbnail = ImageView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(
@@ -317,6 +462,7 @@ class ActivityProductDetail : AppCompatActivity() {
                 connection.connectTimeout = 10000
                 connection.readTimeout = 10000
                 connection.requestMethod = "GET"
+
                 connection.connect()
 
                 if (connection.responseCode == HttpURLConnection.HTTP_OK) {
@@ -326,7 +472,7 @@ class ActivityProductDetail : AppCompatActivity() {
                 }
 
             } catch (e: Exception) {
-                android.util.Log.e(
+                Log.e(
                     "ActivityProductDetail",
                     "Error cargando imagen: $ruta",
                     e
@@ -355,7 +501,12 @@ class ActivityProductDetail : AppCompatActivity() {
     }
 
     private fun mostrarError(mensaje: String) {
-        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            this,
+            mensaje,
+            Toast.LENGTH_LONG
+        ).show()
+
         finish()
     }
 

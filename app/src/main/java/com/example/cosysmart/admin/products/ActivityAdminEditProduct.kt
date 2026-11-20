@@ -34,6 +34,7 @@ import java.net.URL
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+// Activity desarrollado para la edición de productos en la sección de administración
 class ActivityAdminEditProduct : AppCompatActivity() {
 
     private lateinit var etName: EditText
@@ -233,8 +234,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
         }
     }
 
-    // CARGAR CATEGORÍAS
-
     private fun cargarCategorias() {
 
         RetrofitClient.instance.listarCategorias()
@@ -345,7 +344,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
     }
 
     // PRECARGAR INFORMACIÓN
-
     private fun llenarFormulario(
         producto: ProductoResponse
     ) {
@@ -396,8 +394,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
 
         mostrarImagenesActuales(producto.imagenes)
     }
-
-    // MOSTRAR FOTOGRAFÍAS ACTUALES
 
     private fun mostrarImagenesActuales(
         imagenes: List<String>
@@ -468,8 +464,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
         }
     }
 
-    // CÁMARA
-
     private fun abrirCamaraProducto() {
 
         try {
@@ -507,8 +501,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
         }
     }
 
-    // PREVISUALIZAR FOTOGRAFÍAS NUEVAS
-
     private fun mostrarPrevisualizaciones() {
 
         layoutPreviews.removeAllViews()
@@ -535,8 +527,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
             "Nuevas fotografías: ${selectedImages.size}/5. " +
                     "Reemplazarán las fotografías actuales."
     }
-
-    // ACTUALIZAR PRODUCTO
 
     private fun actualizarProducto() {
 
@@ -751,9 +741,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
             }
         })
     }
-
-    // VALIDAR DIMENSIONES
-
     private fun validarDimension(
         valor: String,
         campo: EditText
@@ -848,8 +835,6 @@ class ActivityAdminEditProduct : AppCompatActivity() {
 
         return partes
     }
-
-    // ERRORES
 
     private fun obtenerMensajeError(
         error: String?

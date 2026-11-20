@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import com.example.cosysmart.login.LoginActivity
 
+// Manager de sesión
+
 object SesionManager {
 
     fun cerrarSesion(activity: Activity) {

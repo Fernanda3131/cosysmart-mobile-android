@@ -6,6 +6,8 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+// Client para las peticiones a la API
+
 object RetrofitClient {
 
     private const val BASE_URL = "http://localhost:8000/"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
         android:paddingTop="20dp"
+        android:paddingBottom="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -55,8 +57,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Finalizar Compra"
+        android:layout_marginTop="8dp"
+        android:text="Finalizar compra"
         android:textColor="#2C221E"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -69,18 +71,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="2dp"
-        android:text="Dirección de entrega y método de pago"
+        android:text="Revisa tu pedido y completa tus datos"
         android:textColor="#8C7D75"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCheckoutTitle" />
 
     <ScrollView
+        android:id="@+id/scrollCheckout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
         android:clipToPadding="false"
+        android:fillViewport="false"
         android:paddingBottom="16dp"
         app:layout_constraintBottom_toTopOf="@id/layoutPaymentFooter"
         app:layout_constraintTop_toBottomOf="@id/tvCheckoutSubtitle">
@@ -105,75 +109,32 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/tvCheckoutItemsTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dirección de entrega"
-                            android:textColor="#2C221E"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="Colombia"
-                            android:textColor="#8C7D75"
-                            android:textSize="11sp" />
-                    </RelativeLayout>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/bg_search_input"
-                        android:paddingHorizontal="12dp"
-                        android:text="María Fernanda León"
+                        android:layout_marginBottom="12dp"
+                        android:text="Tu pedido"
                         android:textColor="#2C221E"
-                        android:textSize="12sp" />
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/layoutCheckoutItems"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical" />
 
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="44dp"
-                            android:layout_marginEnd="6dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/bg_search_input"
-                            android:paddingHorizontal="12dp"
-                            android:text="Bogotá D.C."
-                            android:textColor="#2C221E"
-                            android:textSize="12sp" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="44dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/bg_search_input"
-                            android:paddingHorizontal="12dp"
-                            android:text="310 456 7890"
-                            android:textColor="#2C221E"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <EditText
+                    <TextView
+                        android:id="@+id/tvCheckoutEmpty"
                         android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:background="@drawable/bg_search_input"
-                        android:paddingHorizontal="12dp"
-                        android:text="Cra. 45 # 100-20, Apto 302"
-                        android:textColor="#2C221E"
-                        android:textSize="12sp" />
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="No hay productos en tu carrito."
+                        android:textColor="#8C7D75"
+                        android:textSize="13sp"
+                        android:visibility="gone" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -182,141 +143,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Método de pago"
+                android:text="Dirección de entrega"
                 android:textColor="#2C221E"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="1dp">
-
-                <RadioGroup
-                    android:id="@+id/rgPaymentMethods"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:background="#F4EFE6"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
-
-                        <RadioButton
-                            android:id="@+id/rbCard"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="#C05C38"
-                            android:checked="true" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Tarjeta de Crédito / Débito"
-                                android:textColor="#2C221E"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Visa, Mastercard, American Express"
-                                android:textColor="#7A6F68"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:background="#FAFAFA"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
-
-                        <RadioButton
-                            android:id="@+id/rbPse"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="#C05C38" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="PSE / Transferencia bancaria"
-                                android:textColor="#2C221E"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Bancolombia, Davivienda, Nequi, etc."
-                                android:textColor="#7A6F68"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#FAFAFA"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
-
-                        <RadioButton
-                            android:id="@+id/rbCash"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="#C05C38" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pago contra entrega"
-                                android:textColor="#2C221E"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Disponible para Bogotá"
-                                android:textColor="#7A6F68"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </RadioGroup>
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -332,98 +162,216 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Resumen del pedido (3)"
-                            android:textColor="#2C221E"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="Ver todo"
-                            android:textColor="#C05C38"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="6dp"
-                        android:orientation="horizontal">
+                        android:text="Nombre completo"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="• Sofá compacto Nórdico"
-                            android:textColor="#7A6F68"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$899.000"
-                            android:textColor="#2C221E"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <EditText
+                        android:id="@+id/etCheckoutName"
                         android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_search_input"
+                        android:hint="Nombre del destinatario"
+                        android:inputType="textCapWords"
+                        android:paddingHorizontal="12dp"
+                        android:textColor="#2C221E"
+                        android:textColorHint="#A99D96"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="6dp"
-                        android:orientation="horizontal">
+                        android:text="Teléfono de contacto"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="• Lámpara Luz Serena"
-                            android:textColor="#7A6F68"
-                            android:textSize="12sp" />
+                    <EditText
+                        android:id="@+id/etCheckoutPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_search_input"
+                        android:hint="Número de teléfono"
+                        android:inputType="phone"
+                        android:paddingHorizontal="12dp"
+                        android:textColor="#2C221E"
+                        android:textColorHint="#A99D96"
+                        android:textSize="13sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$189.000"
-                            android:textColor="#2C221E"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Ciudad"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
 
-                    <LinearLayout
+                    <EditText
+                        android:id="@+id/etCheckoutCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_search_input"
+                        android:hint="Ciudad"
+                        android:inputType="textCapWords"
+                        android:paddingHorizontal="12dp"
+                        android:textColor="#2C221E"
+                        android:textColorHint="#A99D96"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Selecciona tu ubicación"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUseCurrentLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Usar mi ubicación actual"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#C05C38"
+                        app:cornerRadius="10dp"
+                        app:icon="@android:drawable/ic_menu_mylocation"
+                        app:iconTint="#FFFFFF" />
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginBottom="8dp"
+                        android:text="También puedes tocar el mapa para elegir el punto exacto de entrega."
+                        android:textColor="#8C7D75"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="• Organizador vertical"
-                            android:textColor="#7A6F68"
-                            android:textSize="12sp" />
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/mapCheckout"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:focusable="true" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$349.000"
-                            android:textColor="#2C221E"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvSelectedLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:padding="8dp"
+                        android:text="Aún no has seleccionado una ubicación."
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Dirección completa"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/etCheckoutAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_search_input"
+                        android:hint="Calle, carrera, número, apartamento..."
+                        android:inputType="textPostalAddress"
+                        android:paddingHorizontal="12dp"
+                        android:textColor="#2C221E"
+                        android:textColorHint="#A99D96"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Indicaciones adicionales (opcional)"
+                        android:textColor="#7A6F68"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/etCheckoutNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@drawable/bg_search_input"
+                        android:gravity="top"
+                        android:hint="Referencias para encontrar tu dirección"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:padding="12dp"
+                        android:textColor="#2C221E"
+                        android:textColorHint="#A99D96"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Método de pago"
+                android:textColor="#2C221E"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+
+                <RadioGroup
+                    android:id="@+id/rgPaymentMethods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <RadioButton
+                        android:id="@+id/rbCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#C05C38"
+                        android:padding="10dp"
+                        android:text="Tarjeta de crédito / débito"
+                        android:textColor="#2C221E"
+                        android:textSize="13sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbPse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#C05C38"
+                        android:padding="10dp"
+                        android:text="PSE / Transferencia bancaria"
+                        android:textColor="#2C221E"
+                        android:textSize="13sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbCash"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#C05C38"
+                        android:padding="10dp"
+                        android:text="Pago contra entrega"
+                        android:textColor="#2C221E"
+                        android:textSize="13sp" />
+
+                </RadioGroup>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
@@ -434,16 +382,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
+        android:elevation="8dp"
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
         android:paddingTop="12dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp">
+            android:layout_marginBottom="6dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -453,10 +402,11 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tvCheckoutSubtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="$1.437.000"
+                android:text="$0"
                 android:textColor="#2C221E"
                 android:textSize="12sp" />
         </RelativeLayout>
@@ -469,15 +419,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Envío estimado"
+                android:text="Envío"
                 android:textColor="#7A6F68"
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tvCheckoutShipping"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="$25.000"
+                android:text="Por calcular"
                 android:textColor="#2C221E"
                 android:textSize="12sp" />
         </RelativeLayout>
@@ -502,10 +453,11 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvCheckoutTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="$1.462.000"
+                android:text="$0"
                 android:textColor="#C05C38"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -514,13 +466,14 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnConfirmPayment"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Confirmar y pagar  →"
+            android:layout_height="50dp"
+            android:text="Confirmar y pagar"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             app:backgroundTint="#C05C38"
             app:cornerRadius="10dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

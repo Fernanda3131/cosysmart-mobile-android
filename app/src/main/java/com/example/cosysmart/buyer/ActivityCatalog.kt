@@ -370,22 +370,33 @@ class ActivityCatalog : AppCompatActivity() {
     ): CardView {
 
         val tarjeta = CardView(this).apply {
-
             radius = dp(14).toFloat()
             cardElevation = dp(2).toFloat()
             setCardBackgroundColor(Color.WHITE)
 
             isClickable = true
             isFocusable = true
+
+            // Efecto visual al presionar la tarjeta.
+            foreground = android.util.TypedValue().let {
+                val attributes = intArrayOf(
+                    android.R.attr.selectableItemBackground
+                )
+                val typedArray = context.obtainStyledAttributes(attributes)
+                val drawable = typedArray.getDrawable(0)
+                typedArray.recycle()
+                drawable
+            }
         }
 
         val contenido = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(10), dp(10), dp(10), dp(10))
+            isClickable = false
+            isFocusable = false
         }
 
         val imagen = ImageView(this).apply {
-
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 dp(120)
@@ -399,50 +410,41 @@ class ActivityCatalog : AppCompatActivity() {
         contenido.addView(imagen)
 
         val categoria = TextView(this).apply {
-
             text = producto.nombreCategoria ?: "Sin categoría"
             textSize = 9f
             setTextColor(Color.rgb(140, 125, 117))
-
             setPadding(0, dp(8), 0, dp(2))
         }
 
         contenido.addView(categoria)
 
         val nombre = TextView(this).apply {
-
             text = producto.nombre
             textSize = 13f
             setTextColor(colorTexto)
-
             setTypeface(
                 null,
                 android.graphics.Typeface.BOLD
             )
-
             maxLines = 2
         }
 
         contenido.addView(nombre)
 
         val precio = TextView(this).apply {
-
             text = formatearPrecio(producto.precio)
             textSize = 13f
             setTextColor(colorTexto)
-
             setTypeface(
                 null,
                 android.graphics.Typeface.BOLD
             )
-
             setPadding(0, dp(8), 0, dp(2))
         }
 
         contenido.addView(precio)
 
         val disponibilidad = TextView(this).apply {
-
             text = if (producto.stock > 0) {
                 "Disponible"
             } else {
@@ -471,13 +473,17 @@ class ActivityCatalog : AppCompatActivity() {
             )
         }
 
+        // Abrir detalle al presionar cualquier parte de la tarjeta.
         tarjeta.setOnClickListener {
 
             val intent = Intent(
                 this,
                 ActivityProductDetail::class.java
             ).apply {
-                putExtra("ID_PRODUCTO", producto.idProducto)
+                putExtra(
+                    "ID_PRODUCTO",
+                    producto.idProducto
+                )
             }
 
             startActivity(intent)

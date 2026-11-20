@@ -16,6 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+// Activity para recuperar contraseña en caso de olvido
 class ActivityForgotPassword : AppCompatActivity() {
 
     private lateinit var etCorreo: EditText

@@ -34,6 +34,8 @@ import retrofit2.Response
 import java.security.Signature
 import java.util.Locale
 
+// Activity para autenticación de usuario con biometrica y correo
+
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var etLoginCorreo: TextInputEditText
@@ -85,9 +87,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        // Solo se intenta una vez por instancia de LoginActivity.
-        // Si el usuario cancela, no se vuelve a abrir el diálogo.
         if (!autenticacionAutomaticaIniciada) {
             autenticacionAutomaticaIniciada = true
 
@@ -104,11 +103,6 @@ class LoginActivity : AppCompatActivity() {
             Intent(this, ActivityForgotPassword::class.java)
         )
     }
-
-    // ---------------------------------------------------------
-    // LOGIN TRADICIONAL
-    // ---------------------------------------------------------
-
     private fun iniciarSesionNormal() {
 
         val correo = etLoginCorreo.text.toString().trim()
@@ -194,10 +188,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             })
     }
-
-    // ---------------------------------------------------------
     // COMPROBAR CONFIGURACIÓN BIOMÉTRICA
-    // ---------------------------------------------------------
 
     private fun comprobarYMostrarModalBiometria(
         correo: String,
@@ -277,10 +268,6 @@ class LoginActivity : AppCompatActivity() {
             }
             .show()
     }
-
-    // ---------------------------------------------------------
-    // REGISTRO BIOMÉTRICO
-    // ---------------------------------------------------------
 
     private fun registrarDispositivoBiometrico(
         correo: String,
@@ -379,11 +366,6 @@ class LoginActivity : AppCompatActivity() {
             redirigirSegunRol(rolUsuario, nombreUsuario)
         }
     }
-
-    // ---------------------------------------------------------
-    // INICIO AUTOMÁTICO DE BIOMETRÍA
-    // ---------------------------------------------------------
-
     private fun verificarHardwareBiometrico() {
 
         if (solicitudBiometricaEnCurso) return
@@ -431,10 +413,7 @@ class LoginActivity : AppCompatActivity() {
         solicitudBiometricaEnCurso = true
         solicitarDesafioAlBackend()
     }
-
-    // ---------------------------------------------------------
     // SOLICITAR DESAFÍO
-    // ---------------------------------------------------------
 
     private fun solicitarDesafioAlBackend() {
 
@@ -536,9 +515,7 @@ class LoginActivity : AppCompatActivity() {
             })
     }
 
-    // ---------------------------------------------------------
     // DIÁLOGO NATIVO DE ANDROID
-    // ---------------------------------------------------------
 
     private fun launchBiometricPrompt(
         correo: String,
@@ -566,9 +543,6 @@ class LoginActivity : AppCompatActivity() {
                         "BIOMETRIA",
                         "Autenticación cancelada: $errString"
                     )
-
-                    // El usuario puede continuar con correo y contraseña.
-                    // No se vuelve a abrir automáticamente.
                 }
 
                 override fun onAuthenticationSucceeded(
@@ -635,11 +609,6 @@ class LoginActivity : AppCompatActivity() {
             BiometricPrompt.CryptoObject(firmaPreparada)
         )
     }
-
-    // ---------------------------------------------------------
-    // VERIFICAR FIRMA EN BACKEND
-    // ---------------------------------------------------------
-
     private fun enviarFirmaAlBackend(
         correo: String,
         idCredencial: String,
@@ -733,11 +702,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             })
     }
-
-    // ---------------------------------------------------------
-    // NAVEGACIÓN SEGÚN ROL
-    // ---------------------------------------------------------
-
     private fun redirigirSegunRol(
         rolUsuario: String,
         nombreUsuario: String

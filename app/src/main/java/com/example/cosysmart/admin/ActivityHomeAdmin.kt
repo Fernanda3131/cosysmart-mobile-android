@@ -13,13 +13,14 @@ import com.example.cosysmart.security.SesionManager
 import com.example.cosysmart.utils.BottomNavigationHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// Activity desarrollada para el panel administrativo Home
+
 class ActivityHomeAdmin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_admin)
 
-        // Navegación inferior del administrador
         val bottomNav = findViewById<BottomNavigationView>(
             R.id.bottomNavigationView
         )
@@ -32,7 +33,6 @@ class ActivityHomeAdmin : AppCompatActivity() {
             )
         }
 
-        // Cerrar sesión del administrador
         val btnLogout = findViewById<ImageButton>(
             R.id.btnLogoutAdmin
         )
@@ -47,7 +47,6 @@ class ActivityHomeAdmin : AppCompatActivity() {
             SesionManager.cerrarSesion(this)
         }
 
-        // Abrir reportes financieros
         val cardFinancieros = findViewById<CardView>(
             R.id.cardReportesFinancieros
         )
